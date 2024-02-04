@@ -643,9 +643,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2101453995}
   - component: {fileID: 2101453994}
-  - component: {fileID: 2101453996}
   - component: {fileID: 2101453993}
   - component: {fileID: 2101453992}
+  - component: {fileID: 2101453996}
   m_Layer: 0
   m_Name: Monstruo
   m_TagString: Untagged
@@ -777,16 +777,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2101453991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5638b713176fd5e4999819f3fb4da3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  velocity: 0.5
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  velocity: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

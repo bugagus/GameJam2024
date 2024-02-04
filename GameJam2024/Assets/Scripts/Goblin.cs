@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinController : MonoBehaviour
+public class Goblin : MonoBehaviour
 {
     [SerializeField] Transform[] positions = new Transform[5];
     [SerializeField] float velocity;
