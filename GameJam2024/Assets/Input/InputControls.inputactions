@@ -1,5 +1,5 @@
 {
-    "name": "InputActions",
+    "name": "InputControls",
     "maps": [
         {
             "name": "Controls",
@@ -11,16 +11,7 @@
                     "id": "71c090a4-f3a7-40f2-bb20-9560afe1ca39",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Hold",
-                    "type": "Button",
-                    "id": "6669636f-d5e6-4ec7-98f6-a4f793a697e3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -66,50 +57,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Tick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9633a1ba-c476-4e4a-9d1e-3bacf2370e36",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Hold",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e003fcb6-2c7e-4b9d-99f6-89971e11b457",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Hold",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e535e84a-631f-4cf8-bc53-dfabce14fba2",
-                    "path": "<Touchscreen>/primaryTouch/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Hold",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7302a6bf-ac33-402a-8d84-23eee4b9a8ba",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
