@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Goblin : MonoBehaviour
 {
     [SerializeField] Transform[] positions = new Transform[5];
     [SerializeField] float velocity;
+    [SerializeField] protected TextMeshProUGUI textMorse;
+    private Transform desiredPosition;
     private int _nPos;
+    protected MorseCodeGenerator _morseGenerator;
     private bool _isAdvancing;
     private Rigidbody _rb;
     private Transform _transform;
@@ -15,15 +19,16 @@ public class Goblin : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _transform = GetComponent<Transform>();
+        _morseGenerator = FindObjectOfType<MorseCodeGenerator>();
         Advance();
     }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         _nPos = 0;
     }
     
-    private void Update()
+    protected void Update()
     {
         if(_isAdvancing)
         {
@@ -49,5 +54,10 @@ public class Goblin : MonoBehaviour
         _nPos++;
     }
     #endregion
+
+    protected void GoAway()
+    {
+
+    }
 
 }
