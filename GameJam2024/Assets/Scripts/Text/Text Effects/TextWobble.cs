@@ -46,12 +46,15 @@ public class TextWobble : MonoBehaviour
         Color[] colors = mesh.colors;
 
         if (wobbleByWord)
+        {
             WobbleByWord(colors);
+            mesh.colors = colors;
+        }
         else
             WobbleByChar(colors);
         
         mesh.vertices = vertices;
-        mesh.colors = colors;
+        // 
         textMesh.canvasRenderer.SetMesh(mesh);
     }
 
@@ -97,10 +100,10 @@ public class TextWobble : MonoBehaviour
             vertices[index + 2] += offset;
             vertices[index + 3] += offset;
 
-            colors[index] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index].x * 0.001f, 1f));
-            colors[index + 1] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 1].x * 0.001f, 1f));
-            colors[index + 2] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 2].x * 0.001f, 1f));
-            colors[index + 3] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 3].x * 0.001f, 1f));
+            // colors[index] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index].x * 0.001f, 1f));
+            // colors[index + 1] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 1].x * 0.001f, 1f));
+            // colors[index + 2] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 2].x * 0.001f, 1f));
+            // colors[index + 3] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 3].x * 0.001f, 1f));
         }
     }
 

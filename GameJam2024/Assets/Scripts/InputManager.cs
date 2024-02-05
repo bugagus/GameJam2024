@@ -5,7 +5,7 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] float holdTime;
     private InputControls _input;
-    private MorseCode nextGoblinMorse;
+    [SerializeField] private MorseCode nextGoblinMorse;
     private float lastStartTime;
     private float lastEndTime;
 

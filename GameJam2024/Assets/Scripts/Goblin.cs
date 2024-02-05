@@ -68,6 +68,7 @@ public class Goblin : MonoBehaviour
 
     public void HasBeenServed()
     {
+        Debug.Log("ME HAN DAO DE COMER");
         GoAway();
     }
     #endregion
