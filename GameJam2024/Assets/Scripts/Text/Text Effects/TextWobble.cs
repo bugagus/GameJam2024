@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
- 
+using UnityEngine.Rendering;
+
 public class TextWobble : MonoBehaviour
 {
     TMP_Text textMesh;
@@ -18,6 +19,8 @@ public class TextWobble : MonoBehaviour
     [SerializeField][Range(0, 10)] private float xOffset;
     [SerializeField][Range(0, 10)] private float yOffset;
     [SerializeField] private Gradient color;
+
+    private Color[] _colors;
  
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,9 @@ public class TextWobble : MonoBehaviour
                 wordIndexes.Add(index + 1);
         }
         wordLengths.Add(s.Length - wordIndexes[wordIndexes.Count - 1]);
+
+        textMesh.ForceMeshUpdate();
+        _colors = textMesh.mesh.colors;
     }
  
     // Update is called once per frame
@@ -43,19 +49,22 @@ public class TextWobble : MonoBehaviour
         mesh = textMesh.mesh;
         vertices = mesh.vertices;
 
-        Color[] colors = mesh.colors;
-
         if (wobbleByWord)
         {
+            Color[] colors = mesh.colors;
             WobbleByWord(colors);
             mesh.colors = colors;
         }
         else
-            WobbleByChar(colors);
+        {
+            WobbleByChar(_colors);
+            mesh.colors = _colors;
+        }
         
         mesh.vertices = vertices;
         // 
-        textMesh.canvasRenderer.SetMesh(mesh);
+        //textMesh.canvasRenderer.SetMesh(mesh);
+        textMesh.UpdateGeometry(mesh, 0);
     }
 
     private void WobbleByWord(Color[] colors)
@@ -109,5 +118,10 @@ public class TextWobble : MonoBehaviour
 
     Vector2 Wobble(float time) {
         return new Vector2(Mathf.Sin(time*xOffset), Mathf.Cos(time*yOffset));
+    }
+
+    public void SetColors(Color[] colors)
+    {
+        _colors = colors;
     }
 }

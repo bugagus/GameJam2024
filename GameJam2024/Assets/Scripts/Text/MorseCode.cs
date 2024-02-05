@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -8,13 +9,16 @@ public class MorseCode : MonoBehaviour
     private string _code = "";
     private char[] _codeArray;
     private int _currentLetter;
-    [SerializeField][Range(1,10)] private int _numberOfLetters;
+    [SerializeField][Range(1, 10)] private int _numberOfLetters;
     private MorseCodeGenerator _morseGenerator;
 
     [SerializeField] private TMP_Text _goblinText;
     [SerializeField] private TMP_Text _bigText;
+    [SerializeField] private TextWobble _bigTextColorScript;
 
     private Goblin _goblin;
+
+    private Color[] colors;
 
     void Awake()
     {
@@ -26,21 +30,29 @@ public class MorseCode : MonoBehaviour
     {
         _code = _morseGenerator.WordToMorse(_morseGenerator.GetRandomWord(_numberOfLetters));
         _codeArray = _code.ToCharArray();
-        _currentLetter = 0;
+        _currentLetter = -1;
+        _bigText.ForceMeshUpdate();
+        colors = _bigText.mesh.colors;
         PrintGoblinText();
         PrintGlobalText();
     }
 
+    private void Update()
+    {
+        ColorCorrectLetter();
+    }
+
     public char GetCurrentLetter()
     {
-        return  _codeArray[_currentLetter];
+        // La primera letra no se debe pintar al iniciar por lo que la primera letra empieza en -1
+        return _codeArray[_currentLetter + 1];
     }
 
     public void NextLetter()
     {
         Debug.Log("AAAAAAAAAAAAAAA");
         //AQUI IRIA LA LLAMADA AL TEXTO PARA QUE CAMBIE DE COLOR Y/O HAGA ANIMACIONES AL HABER ACERTADO
-        ColorCorrectLetter();
+
 
         _currentLetter++;
         if (_currentLetter >= _code.Length - 1)
@@ -52,30 +64,31 @@ public class MorseCode : MonoBehaviour
 
     private void ColorCorrectLetter()
     {
-        _bigText.ForceMeshUpdate();
-        Mesh mesh = _bigText.mesh;
-        Color[] colors = mesh.colors;
+        if (_currentLetter < 0) return;
 
-        TMP_CharacterInfo c = _bigText.textInfo.characterInfo[_currentLetter];
-        int index = c.index;
+        int vertexIndex = _bigText.textInfo.characterInfo[_currentLetter].vertexIndex;
 
-        colors[index] = Color.red;
-        colors[index+1] = Color.red;
-        colors[index+2] = Color.red;
-        colors[index+3] = Color.red;
+        colors[vertexIndex] = Color.green;
+        colors[vertexIndex + 1] = Color.green;
+        colors[vertexIndex + 2] = Color.green;
+        colors[vertexIndex + 3] = Color.green;
 
-        mesh.colors = colors;
-
-        _bigText.canvasRenderer.SetMesh(mesh);
+        _bigTextColorScript.SetColors(colors);
     }
 
     public void ResetWord()
     {
-        _currentLetter = 0;
-
         //AQUI IRIA LA LLAMADA AL TEXTO PARA QUE CAMBIE DE COLOR Y/O HAGA ANIMACIONES PORQUE SE HA EQUIVOCADO
+        int vertexIndex = _bigText.textInfo.characterInfo[_currentLetter].vertexIndex;
+
+        for (int i = 0; i < vertexIndex + 4; i++)
+        {
+            colors[i] = Color.red;
+        }
+
+        _currentLetter = -1;
     }
-    
+
     private void PrintGoblinText()
     {
         _goblinText.text = _code;
