@@ -61,7 +61,7 @@ public class Goblin : MonoBehaviour
     }
     #endregion
 
-    protected void GoAway()
+    public void GoAway()
     {
         DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
         DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, positions[5].position.x, 7.0f, false);});
