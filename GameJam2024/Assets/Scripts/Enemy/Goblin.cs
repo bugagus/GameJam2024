@@ -8,6 +8,7 @@ public class Goblin : MonoBehaviour
 {
     [SerializeField] Transform[] positions = new Transform[6];
     [SerializeField] float velocity;
+    public EnemyType enemyType;
     private int _nPos;
     private bool _isAdvancing;
     private Rigidbody _rb;
