@@ -25,4 +25,18 @@ public class GoblinMorse : MonoBehaviour
     {
         textMorse.text = _phrase;
     }
+
+    public char CurrentLetter()
+    {
+        return 'E';
+    }
+
+    public void NextLetter()
+    {
+    }
+
+    public void ResetWord()
+    {
+    }
+    
 }
