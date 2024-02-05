@@ -12,8 +12,4 @@ public class MusicControl : MonoBehaviour
     audioMixer.SetFloat("MusicVolume", Mathf.Log10(musicSlider) * 20);
    }
 
-   private void Awake()
-   {
-    DontDestroyOnLoad(transform.gameObject);
-   }
 }
