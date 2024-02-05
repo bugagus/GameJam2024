@@ -12,13 +12,13 @@ public class EnemyGenerator : MonoBehaviour
     private Dictionary<EnemyType, GameObject[]> _enemyList = new() {
         {EnemyType.NormalGoblin, new GameObject[EnemiesOnScreen]},
         {EnemyType.SmallGoblin,  new GameObject[EnemiesOnScreen]},
-        {EnemyType.FatGoblin,    new GameObject[EnemiesOnScreen]}
+        {EnemyType.BigGoblin,    new GameObject[EnemiesOnScreen]}
     };
 
     // Spawn probability of each enemy type.
     // Sum of values should be 1.
     private Dictionary<EnemyType, float> _enemyRareness = new() {
-        {EnemyType.NormalGoblin, 0.5f}, {EnemyType.SmallGoblin, 0.3f}, {EnemyType.FatGoblin, 0.2f}
+        {EnemyType.NormalGoblin, 0.5f}, {EnemyType.SmallGoblin, 0.3f}, {EnemyType.BigGoblin, 0.2f}
     };
     
 
@@ -27,19 +27,14 @@ public class EnemyGenerator : MonoBehaviour
     void Start()
     {
         InitializeEnemyList();
-        SpawnEnemy();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Update is called once per fram
 
     private void InitializeEnemyList() {
 
         Dictionary<EnemyType, int> _enemyCount = new() {
-            {EnemyType.NormalGoblin, 0}, {EnemyType.SmallGoblin, 0}, {EnemyType.FatGoblin, 0}
+            {EnemyType.NormalGoblin, 0}, {EnemyType.SmallGoblin, 0}, {EnemyType.BigGoblin, 0}
         };
 
         Transform transform = _enemyPool.transform;
@@ -67,7 +62,6 @@ public class EnemyGenerator : MonoBehaviour
 
     private int _GetFirstDisabledEnemyObjectIndex(EnemyType enemyType) {
         GameObject[] enemyTypeList = _enemyList[enemyType];
-
         for (int i = 0; i < enemyTypeList.Length; i++) {
             GameObject enemy = enemyTypeList[i];
             if (!enemy.activeSelf) {
@@ -79,7 +73,7 @@ public class EnemyGenerator : MonoBehaviour
         return 1;
     }
 
-    private void SpawnEnemy() {
+    public void SpawnEnemy() {
         EnemyType enemyType = _GetRandomEnemyType();
         int firstFreeIndex = _GetFirstDisabledEnemyObjectIndex(enemyType);
 
