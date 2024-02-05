@@ -38,9 +38,12 @@ public class Goblin : MonoBehaviour
     #region MOVIMIENTO
     public void Advance()
     {
-        if(_nPos == 5)
+        if(_nPos == 4)
         {
             GoAway();
+        }else if(_nPos == 3)
+        {
+            FindObjectOfType<InputManager>().SetNextGoblin(GetComponent<MorseCode>());
         }else
         {
             _rb.velocity = new Vector3(velocity, 0f, 0f);
@@ -59,7 +62,13 @@ public class Goblin : MonoBehaviour
     public void GoAway()
     {
         DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
+        //GameManager.
         DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, positions[5].position.x, 7.0f, false);});
+    }
+
+    public void HasBeenServed()
+    {
+        GoAway();
     }
     #endregion
 

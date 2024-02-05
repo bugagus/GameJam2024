@@ -5,7 +5,7 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] float holdTime;
     private InputControls _input;
-    private GameObject nextGoblin;
+    private MorseCode nextGoblinMorse;
     private float lastStartTime;
     private float lastEndTime;
 
@@ -46,20 +46,20 @@ public class InputManager : MonoBehaviour
     private void CheckLetter()
     {
         char typedLetter;
-        char desiredLetter = nextGoblin.GetComponent<GoblinMorse>().CurrentLetter(); 
+        char desiredLetter = nextGoblinMorse.GetCurrentLetter(); 
         typedLetter = (lastEndTime - lastStartTime < holdTime)? 'E' : 'T';
         if(typedLetter == desiredLetter)
         {
-            nextGoblin.GetComponent<GoblinMorse>().NextLetter();
+            nextGoblinMorse.NextLetter();
         }
         else{
-            nextGoblin.GetComponent<GoblinMorse>().ResetWord();
+            nextGoblinMorse.ResetWord();
         }   
     }
 
-    private void SetNextGoblin(GameObject g)
+    public void SetNextGoblin(MorseCode g)
     {
-        nextGoblin = g;
+        nextGoblinMorse = g;
     }
 
 }
