@@ -23,5 +23,5 @@ public class MorseCode : MonoBehaviour
         _code = _morseGenerator.WordToMorse(_morseGenerator.GetRandomWord(_numberOfLetters));
     }
 
-    
+
 }

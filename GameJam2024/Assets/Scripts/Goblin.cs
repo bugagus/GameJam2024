@@ -8,6 +8,8 @@ public class Goblin : MonoBehaviour
 {
     [SerializeField] Transform[] positions = new Transform[6];
     [SerializeField] float velocity;
+    [SerializeField] private int _numberOfLetters;
+    private Transform desiredPosition;
     private int _nPos;
     private bool _isAdvancing;
     private Rigidbody _rb;
@@ -17,14 +19,16 @@ public class Goblin : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _transform = GetComponent<Transform>();
+        GoAway();
+        Advance();
     }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         _nPos = 0;
     }
     
-    private void Update()
+    protected void Update()
     {
         if(_isAdvancing)
         {
@@ -55,12 +59,22 @@ public class Goblin : MonoBehaviour
         _rb.velocity = Vector3.zero;
         _nPos++;
     }
+    #endregion
 
-    public void GoAway()
+    protected void GoAway()
     {
         DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
         DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, positions[5].position.x, 7.0f, false);});
     }
-    #endregion
+
+    protected void InitTimer(float i)
+    {
+        DOVirtual.DelayedCall(i, ()=> { GoAway();});
+    }
+
+    public int GetNumberOfLetters()
+    {
+        return _numberOfLetters;
+    }
 
 }
