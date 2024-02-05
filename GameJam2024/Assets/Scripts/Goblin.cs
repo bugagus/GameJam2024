@@ -8,10 +8,7 @@ public class Goblin : MonoBehaviour
 {
     [SerializeField] Transform[] positions = new Transform[6];
     [SerializeField] float velocity;
-    [SerializeField] protected TextMeshProUGUI textMorse;
-    private Transform desiredPosition;
     private int _nPos;
-    protected MorseCodeGenerator _morseGenerator;
     private bool _isAdvancing;
     private Rigidbody _rb;
     private Transform _transform;
@@ -20,17 +17,14 @@ public class Goblin : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _transform = GetComponent<Transform>();
-        _morseGenerator = FindObjectOfType<MorseCodeGenerator>();
-        GoAway();
-        Advance();
     }
 
-    protected void OnEnable()
+    private void OnEnable()
     {
         _nPos = 0;
     }
     
-    protected void Update()
+    private void Update()
     {
         if(_isAdvancing)
         {
@@ -61,17 +55,12 @@ public class Goblin : MonoBehaviour
         _rb.velocity = Vector3.zero;
         _nPos++;
     }
-    #endregion
 
-    protected void GoAway()
+    public void GoAway()
     {
         DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
         DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, positions[5].position.x, 7.0f, false);});
     }
-
-    protected void InitTimer(float i)
-    {
-        DOVirtual.DelayedCall(i, ()=> { GoAway();});
-    }
+    #endregion
 
 }
