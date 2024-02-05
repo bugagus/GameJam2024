@@ -8,8 +8,6 @@ public class Goblin : MonoBehaviour
 {
     [SerializeField] Transform[] positions = new Transform[6];
     [SerializeField] float velocity;
-    [SerializeField] private int _numberOfLetters;
-    private Transform desiredPosition;
     private int _nPos;
     private bool _isAdvancing;
     private Rigidbody _rb;
@@ -19,16 +17,14 @@ public class Goblin : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _transform = GetComponent<Transform>();
-        GoAway();
-        Advance();
     }
 
-    protected void OnEnable()
+    private void OnEnable()
     {
         _nPos = 0;
     }
     
-    protected void Update()
+    private void Update()
     {
         if(_isAdvancing)
         {
@@ -42,9 +38,12 @@ public class Goblin : MonoBehaviour
     #region MOVIMIENTO
     public void Advance()
     {
-        if(_nPos == 5)
+        if(_nPos == 4)
         {
             GoAway();
+        }else if(_nPos == 3)
+        {
+            FindObjectOfType<InputManager>().SetNextGoblin(GetComponent<MorseCode>());
         }else
         {
             _rb.velocity = new Vector3(velocity, 0f, 0f);
@@ -59,22 +58,18 @@ public class Goblin : MonoBehaviour
         _rb.velocity = Vector3.zero;
         _nPos++;
     }
-    #endregion
 
     public void GoAway()
     {
         DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
+        //GameManager.
         DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, positions[5].position.x, 7.0f, false);});
     }
 
-    protected void InitTimer(float i)
+    public void HasBeenServed()
     {
-        DOVirtual.DelayedCall(i, ()=> { GoAway();});
+        GoAway();
     }
-
-    public int GetNumberOfLetters()
-    {
-        return _numberOfLetters;
-    }
+    #endregion
 
 }
