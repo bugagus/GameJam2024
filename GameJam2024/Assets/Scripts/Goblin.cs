@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
 public class Goblin : MonoBehaviour
 {
-    [SerializeField] Transform[] positions = new Transform[5];
+    [SerializeField] Transform[] positions = new Transform[6];
     [SerializeField] float velocity;
     [SerializeField] protected TextMeshProUGUI textMorse;
     private Transform desiredPosition;
@@ -20,6 +21,7 @@ public class Goblin : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _transform = GetComponent<Transform>();
         _morseGenerator = FindObjectOfType<MorseCodeGenerator>();
+        GoAway();
         Advance();
     }
 
@@ -42,8 +44,14 @@ public class Goblin : MonoBehaviour
     #region MOVIMIENTO
     public void Advance()
     {
-        _rb.velocity = new Vector3(velocity, 0f, 0f);
-        _isAdvancing = true;
+        if(_nPos == 5)
+        {
+            GoAway();
+        }else
+        {
+            _rb.velocity = new Vector3(velocity, 0f, 0f);
+            _isAdvancing = true;
+        }
     }
 
     public void Stop()
@@ -57,7 +65,13 @@ public class Goblin : MonoBehaviour
 
     protected void GoAway()
     {
+        DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
+        DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, positions[5].position.x, 7.0f, false);});
+    }
 
+    protected void InitTimer(float i)
+    {
+        DOVirtual.DelayedCall(i, ()=> { GoAway();});
     }
 
 }

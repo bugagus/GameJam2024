@@ -18,7 +18,7 @@ public class MorseCodeGenerator : MonoBehaviour
 
     private string symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-    private string LineToMorse(string line)
+    public string LineToMorse(string line)
     {
         string[] words = line.Split(' ');
         string result = "";
@@ -29,7 +29,7 @@ public class MorseCodeGenerator : MonoBehaviour
         return result;
     }
 
-    private string WordToMorse(string word)
+    public string WordToMorse(string word)
     {
         string result = "";
 

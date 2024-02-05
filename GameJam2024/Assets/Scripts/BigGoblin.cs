@@ -9,7 +9,8 @@ public class BigGoblin : Goblin
 
     private new void OnEnable()
     {
-        _phrase = _morseGenerator.GetRandomWord(_nLetters);
+        _phrase = _morseGenerator.LineToMorse(_morseGenerator.GetRandomWord(_nLetters));
+        PrintMorse();
         base.OnEnable();
     }
 
