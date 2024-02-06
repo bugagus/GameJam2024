@@ -7,14 +7,13 @@ using UnityEngine;
 
 public class Goblin : MonoBehaviour
 {
-    [SerializeField] Transform[] positions = new Transform[7];
+    [SerializeField] private Transform exitPosition;
     [SerializeField] float velocity;
     public EnemyType enemyType;
     private GameSettings gameSettings;
     private GoblinTimer goblinTimer;
-    private int _nPos;
+    private Transform _desiredPos;
     private bool _isAdvancing;
-    private bool _isGoingAway;
     private Rigidbody _rb;
     private Transform _transform;
 
@@ -24,15 +23,11 @@ public class Goblin : MonoBehaviour
         _transform = GetComponent<Transform>();
         gameSettings = FindObjectOfType<GameSettings>();
         goblinTimer = GetComponentInChildren<GoblinTimer>();
-        _isGoingAway = false;
     }
 
     private void OnEnable()
     {
-        _isGoingAway = false;
-        _nPos = 0;
-        transform.position = positions[_nPos].position;
-        gameSettings.OnSpawn += Advance;
+        transform.position = gameSettings.spawnPos.position;
         switch (enemyType.ToString())
         {
             case "NormalGoblin":
@@ -47,49 +42,43 @@ public class Goblin : MonoBehaviour
                 goblinTimer.SetTimer(gameSettings.GetBigTime());
                 break;
         }
+        gameSettings.AddGoblin(this);
     }
     
     private void Update()
     {
         if(_isAdvancing)
         {
-            if(_transform.position.x >= positions[_nPos].position.x)
+            if(_transform.position.x <= _desiredPos.position.x)
             {
+                Debug.Log("Estoy avanzando");
                 Stop();
             }
         }
     }
     
     #region MOVIMIENTO
-    private void Advance(object sender, EventArgs e)
+    public void Advance(Transform pos)
     {
-        if(!_isGoingAway)
-        {
-            if(_nPos == 4)
-            {
-                FindObjectOfType<InputManager>().SetNextGoblin(GetComponent<MorseCode>());
-            }else
-            {
-                _rb.velocity = new Vector3(velocity, 0f, 0f);
-            }
-            _isAdvancing = true;
-        }
+        _rb.velocity = new Vector3(-velocity, 0f, 0f);
+        Debug.Log("Empiezo a avanzar");
+        _isAdvancing = true;
+        _desiredPos = pos;
     }
 
     public void Stop()
     {
+        Debug.Log("He llegado");
         _isAdvancing = false;
-        _transform.position = new Vector3(positions[_nPos].position.x, _transform.position.y, _transform.position.z);
+        _transform.position = new Vector3(_desiredPos.position.x, _transform.position.y, _transform.position.z);
         _rb.velocity = Vector3.zero;
-        _nPos++;
     }
 
     public void GoAway()
     {
+        gameSettings.RemoveGoblin(this);
         DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
-        _isGoingAway = true;
-        gameSettings.SpawnEnemy();
-        DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, positions[6].position.x, 7.0f, false);});
+        DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, exitPosition.position.x, 7.0f, false);});
     }
 
     public void HasBeenServed()

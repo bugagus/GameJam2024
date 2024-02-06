@@ -4,21 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
-class PositionData
-{
-    public Transform position;
-    public bool occupied;
-    
-}
 public class GameSettings : MonoBehaviour
 {
     [SerializeField] private float NormalGoblinInitialWaitTime;
     [SerializeField] private float SmallGoblinInitialWaitTime;
     [SerializeField] private float BigGoblinInitialWaitTime;
     [SerializeField] Transform[] positions;
-    private PositionData[] positionsManager;
+    public Transform spawnPos;
+    private List<Goblin> goblinList = new();
     private EnemyGenerator enemyGenerator;
-    public event EventHandler OnSpawn;
     private int goblinsServedLevel;
 
     // Start is called before the first frame update
@@ -26,11 +20,6 @@ public class GameSettings : MonoBehaviour
     {
         enemyGenerator = FindObjectOfType<EnemyGenerator>();
         StartGame();
-        for(int i = 0; i < positions.Length; i++)
-        {
-            positionsManager[i].position = positions[i];
-            positionsManager[i].occupied = false;
-        }
     }
 
     public void AddGoblinServed()
@@ -52,7 +41,6 @@ public class GameSettings : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log(GetNextEmpty());
         for(int i = 0; i < 5; i ++)
         {
             DOVirtual.DelayedCall(3.0f*i, ()=> {SpawnEnemy();} , false);
@@ -62,7 +50,6 @@ public class GameSettings : MonoBehaviour
     public void SpawnEnemy()
     {
         enemyGenerator.SpawnEnemy();
-        OnSpawn?.Invoke(this, EventArgs.Empty);
     }
 
     public float GetNormalTime()
@@ -80,17 +67,37 @@ public class GameSettings : MonoBehaviour
         return BigGoblinInitialWaitTime;
     }
 
-    public Transform GetNextEmpty()
+    public void AddGoblin(Goblin goblin)
     {
-        for(int i = 0; i < positionsManager.Length; i++)
+        int emptyIndex = FirstEmptyIndex();
+        goblinList.Add(goblin);
+        goblin.Advance(positions[emptyIndex]);
+        if(emptyIndex == 0)
         {
-            if(!positionsManager[i].occupied)
+            FindObjectOfType<InputManager>().SetNextGoblin(goblinList[emptyIndex].GetComponent<MorseCode>());
+        }
+    }
+
+    public void RemoveGoblin(Goblin goblin)
+    {
+        Debug.Log("Quito goblin");
+        int goblinIndex = goblinList.IndexOf(goblin);
+        for(int i = goblinIndex; i < goblinList.Count-1; i++)
+        {
+            goblinList[i] = goblinList[i+1];
+            goblinList[i].Advance(positions[i]);
+            if(i == 0)
             {
-                return positionsManager[i].position;
+                FindObjectOfType<InputManager>().SetNextGoblin(goblinList[i].GetComponent<MorseCode>());
             }
         }
-        return null;
+        goblinList.RemoveAt(goblinList.Count - 1);
+        SpawnEnemy();
+    }
 
+    private int FirstEmptyIndex()
+    {
+        return goblinList.Count;
     }
 
 

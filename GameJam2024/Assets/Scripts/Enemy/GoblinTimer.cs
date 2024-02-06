@@ -32,5 +32,6 @@ public class GoblinTimer : MonoBehaviour
     public void SetTimer(float a)
     {
         timer = a;
+        slider.value = 0f;
     }
 }

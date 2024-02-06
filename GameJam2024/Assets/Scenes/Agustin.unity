@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 84339408}
   - component: {fileID: 84339409}
   m_Layer: 0
-  m_Name: Punto2
+  m_Name: Punto4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1425,7 +1425,6 @@ Transform:
   - {fileID: 28518829}
   - {fileID: 2022404631}
   - {fileID: 2077175751}
-  - {fileID: 844824252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &284869637
@@ -2924,15 +2923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 1
 --- !u!114 &602768005
 MonoBehaviour:
@@ -3172,15 +3164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 2
 --- !u!114 &632519750
 MonoBehaviour:
@@ -3495,15 +3480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 1
 --- !u!114 &694613615
 MonoBehaviour:
@@ -3884,15 +3862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 0
 --- !u!135 &748173140
 SphereCollider:
@@ -4538,15 +4509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 0
 --- !u!114 &815057207
 MonoBehaviour:
@@ -5013,11 +4977,11 @@ Transform:
   m_GameObject: {fileID: 844824251}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.07, y: 0, z: 0}
+  m_LocalPosition: {x: 3.25, y: 0.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 267778480}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &844824253
 SpriteRenderer:
@@ -5550,15 +5514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 1
 --- !u!114 &952768636
 MonoBehaviour:
@@ -6265,15 +6222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 2
 --- !u!114 &1170617856
 MonoBehaviour:
@@ -6438,15 +6388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 0
 --- !u!114 &1178488446
 MonoBehaviour:
@@ -6989,7 +6932,7 @@ GameObject:
   - component: {fileID: 1248404933}
   - component: {fileID: 1248404934}
   m_Layer: 0
-  m_Name: Punto1
+  m_Name: Punto5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7454,9 +7397,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a4f013c280f764ca100895946bbb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NormalGoblinInitialWaitTime: 10
-  SmallGoblinInitialWaitTime: 10
-  BigGoblinInitialWaitTime: 10
+  NormalGoblinInitialWaitTime: 5
+  SmallGoblinInitialWaitTime: 5
+  BigGoblinInitialWaitTime: 5
+  positions:
+  - {fileID: 2077175751}
+  - {fileID: 2022404631}
+  - {fileID: 28518829}
+  - {fileID: 84339408}
+  - {fileID: 1248404933}
+  spawnPos: {fileID: 844824252}
 --- !u!1 &1417448353
 GameObject:
   m_ObjectHideFlags: 0
@@ -7684,15 +7634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 1
 --- !u!114 &1475357791
 MonoBehaviour:
@@ -7932,15 +7875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 0
 --- !u!114 &1484068498
 MonoBehaviour:
@@ -8590,15 +8526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 2
 --- !u!114 &1561160198
 MonoBehaviour:
@@ -9603,7 +9532,7 @@ Transform:
   m_GameObject: {fileID: 1677594804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.063, y: 0.3, z: -2.08}
+  m_LocalPosition: {x: 0.87, y: 0.3, z: -2.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10487,15 +10416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 1
 --- !u!114 &1772029003
 MonoBehaviour:
@@ -11442,15 +11364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 2
 --- !u!114 &1902999740
 MonoBehaviour:
@@ -11829,15 +11744,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 2
 --- !u!114 &1940722231
 MonoBehaviour:
@@ -12320,7 +12228,7 @@ GameObject:
   - component: {fileID: 2022404631}
   - component: {fileID: 2022404632}
   m_Layer: 0
-  m_Name: Punto4
+  m_Name: Punto2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12544,7 +12452,7 @@ GameObject:
   - component: {fileID: 2077175751}
   - component: {fileID: 2077175752}
   m_Layer: 0
-  m_Name: Punto5
+  m_Name: Punto1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13137,15 +13045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bfbdb8ffb3b04bb3e8f985ca5f6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 1248404933}
-  - {fileID: 84339408}
-  - {fileID: 28518829}
-  - {fileID: 2022404631}
-  - {fileID: 2077175751}
-  - {fileID: 844824252}
-  - {fileID: 1004380057}
-  velocity: 0
+  exitPosition: {fileID: 1004380057}
+  velocity: 5
   enemyType: 0
 --- !u!114 &2141371859
 MonoBehaviour:
@@ -13304,6 +13205,7 @@ SceneRoots:
   - {fileID: 1677594807}
   - {fileID: 1722344412}
   - {fileID: 766582621}
+  - {fileID: 844824252}
   - {fileID: 267778480}
   - {fileID: 258241301}
   - {fileID: 716920251}
