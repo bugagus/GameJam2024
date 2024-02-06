@@ -17,12 +17,15 @@ public class Goblin : MonoBehaviour
     private Rigidbody _rb;
     private Transform _transform;
 
+    private MorseCode _morseCode;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _transform = GetComponent<Transform>();
         gameSettings = FindObjectOfType<GameSettings>();
         goblinTimer = GetComponentInChildren<GoblinTimer>();
+        _morseCode = GetComponent<MorseCode>();
     }
 
     private void OnEnable()

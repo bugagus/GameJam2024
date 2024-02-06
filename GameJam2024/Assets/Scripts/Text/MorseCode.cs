@@ -30,8 +30,6 @@ public class MorseCode : MonoBehaviour
         _code = _morseGenerator.WordToMorse(_morseGenerator.GetRandomWord(_numberOfLetters));
         _codeArray = _code.ToCharArray();
         _currentLetter = -1;
-        _bigText.ForceMeshUpdate();
-        colors = _bigText.mesh.colors;
         PrintGoblinText();
     }
 
@@ -49,7 +47,7 @@ public class MorseCode : MonoBehaviour
     {
         Debug.Log("AAAAAAAAAAAAAAA");
         //AQUI IRIA LA LLAMADA AL TEXTO PARA QUE CAMBIE DE COLOR Y/O HAGA ANIMACIONES AL HABER ACERTADO
-        
+
 
         _currentLetter++;
         ColorCorrectLetter();
@@ -85,7 +83,7 @@ public class MorseCode : MonoBehaviour
         {
             colors[i] = Color.red;
         }
-
+        _bigTextColorScript.SetColors(colors, _currentLetter);
         _currentLetter = -1;
     }
 
@@ -102,10 +100,16 @@ public class MorseCode : MonoBehaviour
 
     private void OnTriggerEnter(Collider a)
     {
-        if(a.CompareTag("PrimeroFila"))
+        if (a.CompareTag("PrimeroFila"))
         {
             Debug.Log("HOlaaaa");
+
+            FindObjectOfType<InputManager>().SetNextGoblin(this);
+
             PrintGlobalText();
+            _bigTextColorScript.Reset();
+            _bigText.ForceMeshUpdate();
+            colors = _bigText.mesh.colors;
         }
     }
 }

@@ -8,6 +8,7 @@ public class GoblinTimer : MonoBehaviour
 {
     [SerializeField] private float timer;
     [SerializeField] private Slider slider;
+
     bool _isGoingAway;
     
     private void OnEnable()
