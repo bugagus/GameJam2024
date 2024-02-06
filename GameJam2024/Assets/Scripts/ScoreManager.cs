@@ -6,16 +6,12 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
 
+    private const int goblinsToLevelUp = 10;
+
     private int _difficultyLevel;
     private int _playerScore;
     private int _goblinsServed;
     private int _goblinsFailed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void AddScore()
     {
@@ -24,9 +20,14 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void SubtractScore() => _playerScore = Math.Max(0, _playerScore - 50);
+
     public void AddGoblinServed()
     {
         _goblinsServed++;
+
+        if (_goblinsServed % goblinsToLevelUp == 0)
+            _difficultyLevel++;
+    
         Debug.Log("Goblins servidos: " + _goblinsServed);
     }
 
@@ -36,8 +37,6 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("Goblins fallados: " + _goblinsFailed);
     }
 
-    // TODO If we feel like it maybe eventually change all getters to this one-line statements.
-    // Nvm, read about {get; set;} later!!!!!
     public int GetDifficulty() => _difficultyLevel;
 
     public void AddDifficulty() => _difficultyLevel++;
