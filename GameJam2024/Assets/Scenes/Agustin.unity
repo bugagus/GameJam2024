@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -891,6 +891,7 @@ GameObject:
   - component: {fileID: 1408998098}
   - component: {fileID: 1408998097}
   - component: {fileID: 1408998099}
+  - component: {fileID: 1408998100}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -938,9 +939,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a4f013c280f764ca100895946bbb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NormalGoblinInitialWaitTime: 5
-  SmallGoblinInitialWaitTime: 5
-  BigGoblinInitialWaitTime: 5
   positions:
   - {fileID: 2077175751}
   - {fileID: 2022404631}
@@ -948,6 +946,18 @@ MonoBehaviour:
   - {fileID: 84339408}
   - {fileID: 1248404933}
   spawnPos: {fileID: 844824252}
+--- !u!114 &1408998100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408998096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea6d7a4f79ca943ab1d0c968b6d6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1677594804
 GameObject:
   m_ObjectHideFlags: 0
