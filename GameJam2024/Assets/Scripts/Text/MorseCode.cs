@@ -39,7 +39,6 @@ public class MorseCode : MonoBehaviour
 
     private void Update()
     {
-        ColorCorrectLetter();
     }
 
     public char GetCurrentLetter()
@@ -52,12 +51,14 @@ public class MorseCode : MonoBehaviour
     {
         Debug.Log("AAAAAAAAAAAAAAA");
         //AQUI IRIA LA LLAMADA AL TEXTO PARA QUE CAMBIE DE COLOR Y/O HAGA ANIMACIONES AL HABER ACERTADO
-
+        
 
         _currentLetter++;
+        ColorCorrectLetter();
         if (_currentLetter >= _code.Length - 1)
         {
             _goblin.HasBeenServed();
+            _bigTextColorScript.SetWordComplete(true);
         }
 
     }
@@ -73,11 +74,12 @@ public class MorseCode : MonoBehaviour
         colors[vertexIndex + 2] = Color.green;
         colors[vertexIndex + 3] = Color.green;
 
-        _bigTextColorScript.SetColors(colors);
+        _bigTextColorScript.SetColors(colors, _currentLetter);
     }
 
     public void ResetWord()
     {
+        if (_currentLetter < 0) return;
         //AQUI IRIA LA LLAMADA AL TEXTO PARA QUE CAMBIE DE COLOR Y/O HAGA ANIMACIONES PORQUE SE HA EQUIVOCADO
         int vertexIndex = _bigText.textInfo.characterInfo[_currentLetter].vertexIndex;
 
