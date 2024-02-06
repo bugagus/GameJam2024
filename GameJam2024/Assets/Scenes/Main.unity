@@ -1191,10 +1191,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pito
+  m_text: Pitooooooooooooooooooooooooooooooooooooooooooooooooo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1ee5ce739f48d77479e6cec6f9964453, type: 2}
+  m_sharedMaterial: {fileID: 7571147159563621676, guid: 1ee5ce739f48d77479e6cec6f9964453, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1391,7 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f01bfaac66463544a06dcd7a31aabbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdTime: 1
+  holdTime: 0.15
   nextGoblinMorse: {fileID: 0}
 --- !u!4 &1018379274
 Transform:
