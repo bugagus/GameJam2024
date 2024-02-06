@@ -10,10 +10,6 @@ public class GameSettings : MonoBehaviour
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
     private EnemyGenerator enemyGenerator;
-    private int _difficultyLevel;
-    private int _playerScore;
-    private int _goblinsServed;
-    private int _goblinsFailed;
 
     // Start is called before the first frame update
     void Start()
@@ -21,24 +17,6 @@ public class GameSettings : MonoBehaviour
         enemyGenerator = FindObjectOfType<EnemyGenerator>();
         StartGame();
     }
-
-    public void AddGoblinServed()
-    {
-        _goblinsServed++;
-        Debug.Log("Goblins servidos: " + _goblinsServed);
-    }
-
-    public void AddGoblinFailed()
-    {
-        _goblinsFailed++;
-        Debug.Log("Goblins fallados: " + _goblinsFailed);
-    }
-
-    // TODO If we feel like it maybe eventually change all getters to this one-line statements.
-    // Nvm, read about {get; set;} later!!!!!
-    public int GetDifficulty() => _difficultyLevel;
-
-    public void AddDifficulty() => _difficultyLevel++;
 
     public void StartGame()
     {

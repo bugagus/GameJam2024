@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GoblinTimer : MonoBehaviour
 {
     private GameObject _gameManager;
-    
+
     [SerializeField] private float timer;
     [SerializeField] private Slider slider;
     bool _isGoingAway;
@@ -22,7 +22,7 @@ public class GoblinTimer : MonoBehaviour
         slider.value += 1f/timer*Time.deltaTime;
         if(slider.value == 1 && !_isGoingAway)
         {
-            _gameManager.GetComponent<GameSettings>().AddGoblinFailed();
+            _gameManager.GetComponent<ScoreManager>().AddGoblinFailed();
             GoAway();
         }
     }
