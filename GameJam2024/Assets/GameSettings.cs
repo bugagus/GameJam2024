@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine;
 public class GameSettings : MonoBehaviour
 {
+    // TODO mover a un diccionario en Goblin 
     [SerializeField] private float NormalGoblinInitialWaitTime;
     [SerializeField] private float SmallGoblinInitialWaitTime;
     [SerializeField] private float BigGoblinInitialWaitTime;
@@ -13,7 +14,8 @@ public class GameSettings : MonoBehaviour
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
     private EnemyGenerator enemyGenerator;
-    private int goblinsServedLevel;
+    private int _goblinsServed;
+    private int _goblinsFailed;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +26,14 @@ public class GameSettings : MonoBehaviour
 
     public void AddGoblinServed()
     {
-        goblinsServedLevel++;
-        if(goblinsServedLevel % 11 == 10)
-        {
-            goblinsServedLevel = 0;
-            AddDificulty();
-        }
+        _goblinsServed++;
+        Debug.Log("Goblins servidos: " + _goblinsServed);
+    }
+
+    public void AddGoblinFailed()
+    {
+        _goblinsFailed++;
+        Debug.Log("Goblins fallados: " + _goblinsFailed);
     }
 
     public void AddDificulty()

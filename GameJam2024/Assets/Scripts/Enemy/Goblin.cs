@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Goblin : MonoBehaviour
 {
+    private GameObject _gameManager;
     [SerializeField] private Transform exitPosition;
     [SerializeField] float velocity;
     public EnemyType enemyType;
@@ -19,6 +20,7 @@ public class Goblin : MonoBehaviour
 
     private void Awake()
     {
+        _gameManager = GameObject.Find("GameManager");
         _rb = GetComponent<Rigidbody>();
         _transform = GetComponent<Transform>();
         gameSettings = FindObjectOfType<GameSettings>();
@@ -83,6 +85,7 @@ public class Goblin : MonoBehaviour
 
     public void HasBeenServed()
     {
+        _gameManager.GetComponent<GameSettings>().AddGoblinFailed();
         GoAway();
     }
     #endregion
