@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f01bfaac66463544a06dcd7a31aabbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdTime: 1
+  holdTime: 0.5
   nextGoblinMorse: {fileID: 2101453998}
 --- !u!4 &475028226
 Transform:
@@ -514,8 +514,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1ee5ce739f48d77479e6cec6f9964453, type: 2}
+  m_sharedMaterial: {fileID: 7571147159563621676, guid: 1ee5ce739f48d77479e6cec6f9964453, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -539,8 +539,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759041577}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a59056b133dff8646b71332de2d45e39, type: 3}
   m_Name: 
@@ -607,19 +607,19 @@ MonoBehaviour:
   color:
     serializedVersion: 2
     key0: {r: 0.122803174, g: 0.06132078, b: 1, a: 1}
-    key1: {r: 0.8867924, g: 0.85635436, b: 0.079476655, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
+    key1: {r: 0.07843135, g: 0.8862745, b: 0.12073777, a: 1}
+    key2: {r: 0.8723751, g: 0.8862745, b: 0.07843135, a: 0}
+    key3: {r: 0.8862745, g: 0.5614286, b: 0.07843135, a: 0}
+    key4: {r: 0.8862745, g: 0.07843151, b: 0.07843135, a: 0}
+    key5: {r: 0.8862745, g: 0.07843152, b: 0.07843135, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
+    ctime1: 15420
+    ctime2: 29684
+    ctime3: 44718
+    ctime4: 57440
+    ctime5: 65535
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -632,7 +632,7 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 2
+    m_NumColorKeys: 6
     m_NumAlphaKeys: 2
 --- !u!1 &766582617
 GameObject:
@@ -1818,9 +1818,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numberOfLetters: 3
+  _numberOfLetters: 1
   _goblinText: {fileID: 2107342379}
   _bigText: {fileID: 759041579}
+  _bigTextColorScript: {fileID: 759041581}
 --- !u!1 &2107342377
 GameObject:
   m_ObjectHideFlags: 0
