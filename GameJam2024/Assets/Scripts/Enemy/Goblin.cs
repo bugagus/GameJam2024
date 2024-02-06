@@ -80,6 +80,7 @@ public class Goblin : MonoBehaviour
     public void GoAway()
     {
         gameSettings.RemoveGoblin(this);
+        goblinTimer.SetGoingAway();
         DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
         DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, exitPosition.position.x, 7.0f, false);});
     }

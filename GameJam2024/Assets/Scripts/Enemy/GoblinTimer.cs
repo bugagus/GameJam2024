@@ -35,4 +35,9 @@ public class GoblinTimer : MonoBehaviour
         timer = a;
         slider.value = 0f;
     }
+
+    public void SetGoingAway()
+    {
+        _isGoingAway = true;
+    }
 }
