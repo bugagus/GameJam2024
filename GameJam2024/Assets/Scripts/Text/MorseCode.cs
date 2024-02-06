@@ -34,7 +34,6 @@ public class MorseCode : MonoBehaviour
         _bigText.ForceMeshUpdate();
         colors = _bigText.mesh.colors;
         PrintGoblinText();
-        PrintGlobalText();
     }
 
     private void Update()
@@ -98,6 +97,7 @@ public class MorseCode : MonoBehaviour
 
     public void PrintGlobalText()
     {
+        Debug.Log("Printeo, soy el goblin " + this.gameObject);
         _bigText.text = _code;
     }
 }

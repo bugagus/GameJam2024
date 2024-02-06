@@ -75,6 +75,7 @@ public class GameSettings : MonoBehaviour
         if(emptyIndex == 0)
         {
             FindObjectOfType<InputManager>().SetNextGoblin(goblin.GetComponent<MorseCode>());
+            goblin.GetComponent<MorseCode>().PrintGlobalText();
         }
     }
 
@@ -89,6 +90,7 @@ public class GameSettings : MonoBehaviour
             if(i == 0)
             {
                 FindObjectOfType<InputManager>().SetNextGoblin(goblinList[i].GetComponent<MorseCode>());
+                goblinList[i].GetComponent<MorseCode>().PrintGlobalText();
             }
         }
         goblinList.RemoveAt(goblinList.Count - 1);
