@@ -11,7 +11,6 @@ public class MorseCode : MonoBehaviour
     private int _currentLetter;
     [SerializeField][Range(1, 10)] private int _numberOfLetters;
     private MorseCodeGenerator _morseGenerator;
-
     [SerializeField] private TMP_Text _goblinText;
     [SerializeField] private TMP_Text _bigText;
     [SerializeField] private TextWobble _bigTextColorScript;
@@ -99,5 +98,14 @@ public class MorseCode : MonoBehaviour
     {
         Debug.Log("Printeo, soy el goblin " + this.gameObject);
         _bigText.text = _code;
+    }
+
+    private void OnTriggerEnter(Collider a)
+    {
+        if(a.CompareTag("PrimeroFila"))
+        {
+            Debug.Log("HOlaaaa");
+            PrintGlobalText();
+        }
     }
 }
