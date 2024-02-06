@@ -2888,6 +2888,7 @@ GameObject:
   - component: {fileID: 602768006}
   - component: {fileID: 602768004}
   - component: {fileID: 602768005}
+  - component: {fileID: 602768009}
   m_Layer: 3
   m_Name: Enemy2-3
   m_TagString: Goblin
@@ -3040,6 +3041,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &602768009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602768002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &619945399
 GameObject:
   m_ObjectHideFlags: 0
@@ -3129,6 +3146,7 @@ GameObject:
   - component: {fileID: 632519751}
   - component: {fileID: 632519749}
   - component: {fileID: 632519750}
+  - component: {fileID: 632519754}
   m_Layer: 3
   m_Name: Enemy3-3
   m_TagString: Goblin
@@ -3281,6 +3299,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &632519754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632519747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &641243488
 GameObject:
   m_ObjectHideFlags: 0
@@ -3445,6 +3479,7 @@ GameObject:
   - component: {fileID: 694613616}
   - component: {fileID: 694613614}
   - component: {fileID: 694613615}
+  - component: {fileID: 694613619}
   m_Layer: 3
   m_Name: Enemy2-1
   m_TagString: Goblin
@@ -3597,6 +3632,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &694613619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694613612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &716920248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3827,6 +3878,8 @@ GameObject:
   - component: {fileID: 748173140}
   - component: {fileID: 748173139}
   - component: {fileID: 748173143}
+  - component: {fileID: 748173144}
+  - component: {fileID: 748173145}
   m_Layer: 3
   m_Name: Enemy1-1
   m_TagString: Goblin
@@ -3979,6 +4032,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   slider: {fileID: 588892348}
+--- !u!114 &748173144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748173137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
+--- !u!114 &748173145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748173137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &762069633
 GameObject:
   m_ObjectHideFlags: 0
@@ -4474,6 +4559,7 @@ GameObject:
   - component: {fileID: 815057208}
   - component: {fileID: 815057206}
   - component: {fileID: 815057207}
+  - component: {fileID: 815057211}
   m_Layer: 3
   m_Name: Enemy1-4
   m_TagString: Goblin
@@ -4626,6 +4712,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &815057211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815057204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &815857990
 GameObject:
   m_ObjectHideFlags: 0
@@ -5479,6 +5581,7 @@ GameObject:
   - component: {fileID: 952768637}
   - component: {fileID: 952768635}
   - component: {fileID: 952768636}
+  - component: {fileID: 952768640}
   m_Layer: 3
   m_Name: Enemy2-2
   m_TagString: Goblin
@@ -5631,6 +5734,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &952768640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952768633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &1004380056
 GameObject:
   m_ObjectHideFlags: 0
@@ -6187,6 +6306,7 @@ GameObject:
   - component: {fileID: 1170617857}
   - component: {fileID: 1170617855}
   - component: {fileID: 1170617856}
+  - component: {fileID: 1170617860}
   m_Layer: 3
   m_Name: Enemy3-2
   m_TagString: Goblin
@@ -6339,6 +6459,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1170617860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170617853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &1178488443
 GameObject:
   m_ObjectHideFlags: 0
@@ -6353,6 +6489,7 @@ GameObject:
   - component: {fileID: 1178488447}
   - component: {fileID: 1178488445}
   - component: {fileID: 1178488446}
+  - component: {fileID: 1178488450}
   m_Layer: 3
   m_Name: Enemy1-2
   m_TagString: Goblin
@@ -6505,6 +6642,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1178488450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178488443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &1188967811
 GameObject:
   m_ObjectHideFlags: 0
@@ -7599,6 +7752,7 @@ GameObject:
   - component: {fileID: 1475357792}
   - component: {fileID: 1475357790}
   - component: {fileID: 1475357791}
+  - component: {fileID: 1475357795}
   m_Layer: 3
   m_Name: Enemy2-4
   m_TagString: Goblin
@@ -7751,6 +7905,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1475357795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475357788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &1483385245
 GameObject:
   m_ObjectHideFlags: 0
@@ -7840,6 +8010,7 @@ GameObject:
   - component: {fileID: 1484068499}
   - component: {fileID: 1484068497}
   - component: {fileID: 1484068498}
+  - component: {fileID: 1484068502}
   m_Layer: 3
   m_Name: Enemy1-3
   m_TagString: Goblin
@@ -7992,6 +8163,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1484068502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484068495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &1486766270
 GameObject:
   m_ObjectHideFlags: 0
@@ -8491,6 +8678,7 @@ GameObject:
   - component: {fileID: 1561160199}
   - component: {fileID: 1561160197}
   - component: {fileID: 1561160198}
+  - component: {fileID: 1561160202}
   m_Layer: 3
   m_Name: Enemy3-5
   m_TagString: Goblin
@@ -8643,6 +8831,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1561160202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561160195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &1605580445
 GameObject:
   m_ObjectHideFlags: 0
@@ -10381,6 +10585,7 @@ GameObject:
   - component: {fileID: 1772029004}
   - component: {fileID: 1772029002}
   - component: {fileID: 1772029003}
+  - component: {fileID: 1772029007}
   m_Layer: 3
   m_Name: Enemy2-5
   m_TagString: Goblin
@@ -10533,6 +10738,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1772029007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772029000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &1789885954
 GameObject:
   m_ObjectHideFlags: 0
@@ -11329,6 +11550,7 @@ GameObject:
   - component: {fileID: 1902999741}
   - component: {fileID: 1902999739}
   - component: {fileID: 1902999740}
+  - component: {fileID: 1902999744}
   m_Layer: 3
   m_Name: Enemy3-4
   m_TagString: Goblin
@@ -11481,6 +11703,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1902999744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902999737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &1914139775
 GameObject:
   m_ObjectHideFlags: 0
@@ -11709,6 +11947,7 @@ GameObject:
   - component: {fileID: 1940722232}
   - component: {fileID: 1940722230}
   - component: {fileID: 1940722231}
+  - component: {fileID: 1940722235}
   m_Layer: 3
   m_Name: Enemy3-1
   m_TagString: Goblin
@@ -11861,6 +12100,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1940722235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940722228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &1956749615
 GameObject:
   m_ObjectHideFlags: 0
@@ -13010,6 +13265,7 @@ GameObject:
   - component: {fileID: 2141371860}
   - component: {fileID: 2141371858}
   - component: {fileID: 2141371859}
+  - component: {fileID: 2141371863}
   m_Layer: 3
   m_Name: Enemy1-5
   m_TagString: Goblin
@@ -13162,6 +13418,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2141371863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141371856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6b2f05cc48454292825eda3c35d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberOfLetters: 0
+  _goblinText: {fileID: 0}
+  _bigText: {fileID: 0}
+  _bigTextColorScript: {fileID: 0}
 --- !u!1 &2145031710
 GameObject:
   m_ObjectHideFlags: 0

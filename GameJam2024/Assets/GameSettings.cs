@@ -74,7 +74,7 @@ public class GameSettings : MonoBehaviour
         goblin.Advance(positions[emptyIndex]);
         if(emptyIndex == 0)
         {
-            FindObjectOfType<InputManager>().SetNextGoblin(goblinList[emptyIndex].GetComponent<MorseCode>());
+            FindObjectOfType<InputManager>().SetNextGoblin(goblin.GetComponent<MorseCode>());
         }
     }
 

@@ -46,6 +46,7 @@ public class InputManager : MonoBehaviour
     private void CheckLetter()
     {
         char typedLetter;
+        Debug.Log(nextGoblinMorse);
         char desiredLetter = nextGoblinMorse.GetCurrentLetter(); 
         typedLetter = (lastEndTime - lastStartTime < holdTime)? 'E' : 'T';
         if(typedLetter == desiredLetter)
