@@ -59,6 +59,11 @@ public class ChargeBar : MonoBehaviour
 
         if(sliderBGFill)
         {
+            sliderFill.color = sliderGradientColor.Evaluate(sliderMain.normalizedValue);
+            sliderColor.text = "Que esta en gradiante o no se que pollas";
+        }
+        else
+        {
             sliderFill.color = sliderPlainColor.Evaluate(sliderMain.normalizedValue);
             sliderColor.text = "Pone no se que de plain color en el tutorial";
         }
