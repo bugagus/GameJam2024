@@ -85,13 +85,15 @@ public class GameSettings : MonoBehaviour
 
         int goblinIndex = goblinList.IndexOf(goblin);
 
-        if (goblinIndex == 0)
-            _bigTextColorScript.AllRed();
+        if (goblinIndex == 0)_bigTextColorScript.AllRed();
 
         for (int i = goblinIndex; i < goblinList.Count - 1; i++)
         {
             goblinList[i] = goblinList[i + 1];
-            goblinList[i].Advance(positions[i]);
+            if(goblinList[i]!=null)
+            {
+                goblinList[i].Advance(positions[i]);
+            }
         }
         goblinList.RemoveAt(goblinList.Count - 1);
         SpawnEnemy();
