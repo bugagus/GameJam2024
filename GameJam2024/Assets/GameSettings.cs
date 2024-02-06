@@ -85,7 +85,10 @@ public class GameSettings : MonoBehaviour
         for(int i = goblinIndex; i < goblinList.Count-1; i++)
         {
             goblinList[i] = goblinList[i+1];
-            goblinList[i].Advance(positions[i]);
+            if(goblinList[i]!=null)
+            {
+                goblinList[i].Advance(positions[i]);
+            }
             if(i == 0)
             {
                 FindObjectOfType<InputManager>().SetNextGoblin(goblinList[i].GetComponent<MorseCode>());
