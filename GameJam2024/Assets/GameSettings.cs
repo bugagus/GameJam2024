@@ -6,14 +6,12 @@ using DG.Tweening;
 using UnityEngine;
 public class GameSettings : MonoBehaviour
 {
-    // TODO mover a un diccionario en Goblin 
-    [SerializeField] private float NormalGoblinInitialWaitTime;
-    [SerializeField] private float SmallGoblinInitialWaitTime;
-    [SerializeField] private float BigGoblinInitialWaitTime;
     [SerializeField] Transform[] positions;
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
     private EnemyGenerator enemyGenerator;
+    private int _difficultyLevel;
+    private int _playerScore;
     private int _goblinsServed;
     private int _goblinsFailed;
 
@@ -36,12 +34,11 @@ public class GameSettings : MonoBehaviour
         Debug.Log("Goblins fallados: " + _goblinsFailed);
     }
 
-    public void AddDificulty()
-    {
-        NormalGoblinInitialWaitTime -= NormalGoblinInitialWaitTime/4;
-        SmallGoblinInitialWaitTime -= SmallGoblinInitialWaitTime/4;
-        BigGoblinInitialWaitTime -= BigGoblinInitialWaitTime/4;
-    }
+    // TODO If we feel like it maybe eventually change all getters to this one-line statements.
+    // Nvm, read about {get; set;} later!!!!!
+    public int GetDifficulty() => _difficultyLevel;
+
+    public void AddDifficulty() => _difficultyLevel++;
 
     public void StartGame()
     {
@@ -54,21 +51,6 @@ public class GameSettings : MonoBehaviour
     public void SpawnEnemy()
     {
         enemyGenerator.SpawnEnemy();
-    }
-
-    public float GetNormalTime()
-    {
-        return NormalGoblinInitialWaitTime;
-    }
-
-    public float GetSmallTime()
-    {
-        return SmallGoblinInitialWaitTime;
-    }
-
-    public float GetBigTime()
-    {
-        return BigGoblinInitialWaitTime;
     }
 
     public void AddGoblin(Goblin goblin)

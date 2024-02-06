@@ -18,6 +18,13 @@ public class Goblin : MonoBehaviour
     private Rigidbody _rb;
     private Transform _transform;
 
+    private readonly Dictionary<EnemyType, float> _goblinTimers = new() {
+        {EnemyType.NormalGoblin, 5f},
+        {EnemyType.SmallGoblin,  5f},
+        {EnemyType.BigGoblin,    5f}
+    };
+    private const float difficultyFactor = 0.2f;
+
     private void Awake()
     {
         _gameManager = GameObject.Find("GameManager");
@@ -27,23 +34,17 @@ public class Goblin : MonoBehaviour
         goblinTimer = GetComponentInChildren<GoblinTimer>();
     }
 
+    private void SetTimer()
+    {
+        float difficultyLevel = _gameManager.GetComponent<GameSettings>().GetDifficulty();
+        float timer = (1 + (difficultyLevel * difficultyFactor)) * _goblinTimers[enemyType];
+        goblinTimer.SetTimer(timer);
+    }
+
     private void OnEnable()
     {
         transform.position = gameSettings.spawnPos.position;
-        switch (enemyType.ToString())
-        {
-            case "NormalGoblin":
-                goblinTimer.SetTimer(gameSettings.GetNormalTime());
-                break;
-
-            case "SmallGoblin":
-                goblinTimer.SetTimer(gameSettings.GetSmallTime());
-                break;
-
-            case "BigGoblin":
-                goblinTimer.SetTimer(gameSettings.GetBigTime());
-                break;
-        }
+        SetTimer();
         gameSettings.AddGoblin(this);
     }
     
