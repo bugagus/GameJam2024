@@ -22,7 +22,7 @@ public class TextWobble : MonoBehaviour
     [SerializeField] private bool wobbleByWord;
     [SerializeField][Range(0, 10)] private float xOffset;
     [SerializeField][Range(0, 10)] private float yOffset;
-    [SerializeField] private Gradient color;
+    [SerializeField] private Gradient gradient;
 
     private List<Color> _colors;
     private int _currentLetter;
@@ -45,7 +45,16 @@ public class TextWobble : MonoBehaviour
         }
         wordLengths.Add(s.Length - wordIndexes[wordIndexes.Count - 1]);
 
+        StartColorsArray();
+    }
+
+    private void StartColorsArray()
+    {
         _colors = new List<Color>(100);
+        for (int i = 0; i < _colors.Count; i++)
+        {
+            _colors[i] = Color.black;
+        }
     }
 
     // Update is called once per frame
@@ -86,10 +95,10 @@ public class TextWobble : MonoBehaviour
             vertices[index + 2] += offset;
             vertices[index + 3] += offset;
 
-            colors[index] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index].x * 0.001f, 1f));
-            colors[index + 1] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 1].x * 0.001f, 1f));
-            colors[index + 2] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 2].x * 0.001f, 1f));
-            colors[index + 3] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 3].x * 0.001f, 1f));
+            colors[index] = gradient.Evaluate(Mathf.Repeat(Time.time + vertices[index].x * 0.001f, 1f));
+            colors[index + 1] = gradient.Evaluate(Mathf.Repeat(Time.time + vertices[index + 1].x * 0.001f, 1f));
+            colors[index + 2] = gradient.Evaluate(Mathf.Repeat(Time.time + vertices[index + 2].x * 0.001f, 1f));
+            colors[index + 3] = gradient.Evaluate(Mathf.Repeat(Time.time + vertices[index + 3].x * 0.001f, 1f));
 
             vertices[index] += offset;
             vertices[index + 1] += offset;

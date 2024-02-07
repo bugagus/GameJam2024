@@ -606,6 +606,8 @@ MonoBehaviour:
   _goblinText: {fileID: 5177324580756407582}
   _bigText: {fileID: 0}
   _bigTextColorScript: {fileID: 0}
+  failColor: {r: 0.59607846, g: 0.043137256, b: 0.043137256, a: 1}
+  okColor: {r: 0.11764706, g: 0.6509804, b: 0.07058824, a: 1}
 --- !u!1 &6358385808195833202
 GameObject:
   m_ObjectHideFlags: 0

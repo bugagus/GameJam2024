@@ -20,6 +20,9 @@ public class MorseCode : MonoBehaviour
 
     private Color[] colors;
 
+    [SerializeField] private Color failColor;
+    [SerializeField] private Color okColor;
+
     void Awake()
     {
         _morseGenerator = FindObjectOfType<MorseCodeGenerator>();
@@ -69,10 +72,10 @@ public class MorseCode : MonoBehaviour
 
         int vertexIndex = _bigText.textInfo.characterInfo[_currentLetter].vertexIndex;
 
-        colors[vertexIndex] = Color.green;
-        colors[vertexIndex + 1] = Color.green;
-        colors[vertexIndex + 2] = Color.green;
-        colors[vertexIndex + 3] = Color.green;
+        colors[vertexIndex] = okColor;
+        colors[vertexIndex + 1] = okColor;
+        colors[vertexIndex + 2] = okColor;
+        colors[vertexIndex + 3] = okColor;
 
         _bigTextColorScript.SetColors(colors, _currentLetter);
     }
@@ -85,7 +88,7 @@ public class MorseCode : MonoBehaviour
 
         for (int i = 0; i < vertexIndex + 4; i++)
         {
-            colors[i] = Color.red;
+            colors[i] = failColor;
         }
         _bigTextColorScript.SetColors(colors, _currentLetter);
         _currentLetter = -1;

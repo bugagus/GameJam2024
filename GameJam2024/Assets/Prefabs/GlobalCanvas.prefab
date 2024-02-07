@@ -225,23 +225,23 @@ MonoBehaviour:
   wobbleByWord: 0
   xOffset: 2.82
   yOffset: 4.87
-  color:
+  gradient:
     serializedVersion: 2
-    key0: {r: 0.122803174, g: 0.06132078, b: 1, a: 1}
-    key1: {r: 0, g: 1, b: 0.07051277, a: 1}
-    key2: {r: 0.97590363, g: 1, b: 0, a: 0}
-    key3: {r: 1, g: 0.6076495, b: 0, a: 0}
-    key4: {r: 1, g: 0.04995039, b: 0, a: 0}
-    key5: {r: 1, g: 0.0047169924, b: 0.8215768, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.09219694, g: 0, b: 1, a: 1}
+    key1: {r: 0, g: 1, b: 1, a: 1}
+    key2: {r: 0.1490196, g: 1, b: 0.16195036, a: 0}
+    key3: {r: 1, g: 0.9243814, b: 0, a: 0}
+    key4: {r: 1, g: 0.42285714, b: 0, a: 0}
+    key5: {r: 1, g: 0.024585541, b: 0, a: 0}
+    key6: {r: 1, g: 0, b: 0.7253394, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 12722
-    ctime2: 25636
-    ctime3: 38743
-    ctime4: 51464
-    ctime5: 61102
-    ctime6: 0
+    ctime1: 10794
+    ctime2: 20046
+    ctime3: 29298
+    ctime4: 41827
+    ctime5: 52043
+    ctime6: 61102
     ctime7: 0
     atime0: 0
     atime1: 65535
@@ -253,7 +253,7 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 6
+    m_NumColorKeys: 7
     m_NumAlphaKeys: 2
 --- !u!1 &7159160254755545091
 GameObject:
