@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] float holdTime;
-    private InputControls _input;
+    public InputControls _input;
     [SerializeField] private MorseCode nextGoblinMorse;
     private float lastStartTime;
     private float lastEndTime;
@@ -28,7 +28,7 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         _input.Controls.Tick.started += ctx => StartTick(ctx);   
-        _input.Controls.Tick.canceled += ctx => EndTick(ctx);    
+        _input.Controls.Tick.canceled += ctx => EndTick(ctx);
     }
 
     private void StartTick(InputAction.CallbackContext context)

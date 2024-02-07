@@ -9,6 +9,7 @@ public class MorseCode : MonoBehaviour
     private string _code = "";
     private char[] _codeArray;
     private int _currentLetter;
+    private Animator animator;
     [SerializeField][Range(1, 10)] private int _numberOfLetters;
     private MorseCodeGenerator _morseGenerator;
     [SerializeField] private TMP_Text _goblinText;
@@ -23,6 +24,7 @@ public class MorseCode : MonoBehaviour
     {
         _morseGenerator = FindObjectOfType<MorseCodeGenerator>();
         _goblin = GetComponent<Goblin>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void OnEnable()
@@ -55,6 +57,7 @@ public class MorseCode : MonoBehaviour
         if (_currentLetter >= _code.Length - 1)
         {
             _goblin.HasBeenServed();
+            animator.SetTrigger("DisappearText");
             _bigTextColorScript.SetWordComplete(true);
         }
 
@@ -106,7 +109,7 @@ public class MorseCode : MonoBehaviour
             Debug.Log("HOlaaaa");
 
             FindObjectOfType<InputManager>().SetNextGoblin(this);
-
+            animator.SetTrigger("AppearText");
             PrintGlobalText();
             _bigTextColorScript.Reset();
             _bigText.ForceMeshUpdate();

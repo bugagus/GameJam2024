@@ -76,11 +76,11 @@ public class GameSettings : MonoBehaviour
     public float GetTimerGoblin(EnemyType type)
     {
         switch(type){
-            case(EnemyType.NormalGoblin):
+            case EnemyType.NormalGoblin:
                 return normalTimer;
-            case(EnemyType.BigGoblin):
+            case EnemyType.BigGoblin:
                 return bigTimer;
-            case(EnemyType.SmallGoblin):
+            case EnemyType.SmallGoblin:
                 return smallTimer;
         }
         return 0f;

@@ -24,7 +24,6 @@ public class Goblin : MonoBehaviour
     //    {EnemyType.BigGoblin,    40f}
     //};
     private const float difficultyFactor = 0.2f;
-    private MorseCode _morseCode;
 
     private void Awake()
     {
@@ -33,7 +32,6 @@ public class Goblin : MonoBehaviour
         _transform = GetComponent<Transform>();
         gameSettings = FindObjectOfType<GameSettings>();
         goblinTimer = GetComponentInChildren<GoblinTimer>();
-        _morseCode = GetComponent<MorseCode>();
     }
 
     private void SetTimer()
