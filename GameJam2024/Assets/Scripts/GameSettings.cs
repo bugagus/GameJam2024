@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 public class GameSettings : MonoBehaviour
 {
     [SerializeField] Transform[] positions;
 
     [SerializeField] private TextWobble _bigTextColorScript;
-
-
+    [SerializeField] private float smallTimer;
+    [SerializeField] private float normalTimer;
+    [SerializeField] private float bigTimer;
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
     private EnemyGenerator enemyGenerator;
@@ -69,6 +71,19 @@ public class GameSettings : MonoBehaviour
     private int FirstEmptyIndex()
     {
         return goblinList.Count;
+    }
+
+    public float GetTimerGoblin(EnemyType type)
+    {
+        switch(type){
+            case(EnemyType.NormalGoblin):
+                return normalTimer;
+            case(EnemyType.BigGoblin):
+                return bigTimer;
+            case(EnemyType.SmallGoblin):
+                return smallTimer;
+        }
+        return 0f;
     }
 
 

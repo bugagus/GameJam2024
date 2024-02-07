@@ -18,11 +18,11 @@ public class Goblin : MonoBehaviour
     private Rigidbody _rb;
     private Transform _transform;
 
-    private readonly Dictionary<EnemyType, float> _goblinTimers = new() {
-        {EnemyType.NormalGoblin, 5f},
-        {EnemyType.SmallGoblin,  5f},
-        {EnemyType.BigGoblin,    5f}
-    };
+    //private readonly Dictionary<EnemyType, float> _goblinTimers = new() {
+    //    {EnemyType.NormalGoblin, 30f},
+    //    {EnemyType.SmallGoblin,  20f},
+    //    {EnemyType.BigGoblin,    40f}
+    //};
     private const float difficultyFactor = 0.2f;
     private MorseCode _morseCode;
 
@@ -39,7 +39,7 @@ public class Goblin : MonoBehaviour
     private void SetTimer()
     {
         float difficultyLevel = _gameManager.GetComponent<ScoreManager>().GetDifficulty();
-        float timer = (1 + (difficultyLevel * difficultyFactor)) * _goblinTimers[enemyType];
+        float timer = (1 + (difficultyLevel * difficultyFactor)) * gameSettings.GetTimerGoblin(enemyType);
         goblinTimer.SetTimer(timer);
     }
 

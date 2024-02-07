@@ -1823,9 +1823,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 877167426}
     - target: {fileID: 3058185748725303557, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
+      propertyPath: bigTimer
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3058185748725303557, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
       propertyPath: spawnPos
       value: 
       objectReference: {fileID: 767750669}
+    - target: {fileID: 3058185748725303557, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
+      propertyPath: smallTimer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3058185748725303557, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
+      propertyPath: normalTimer
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3058185748725303557, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
       propertyPath: _bigTextColorScript
       value: 
