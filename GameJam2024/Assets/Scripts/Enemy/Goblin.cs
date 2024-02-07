@@ -24,6 +24,7 @@ public class Goblin : MonoBehaviour
         {EnemyType.BigGoblin,    5f}
     };
     private const float difficultyFactor = 0.2f;
+    private MorseCode _morseCode;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class Goblin : MonoBehaviour
         _transform = GetComponent<Transform>();
         gameSettings = FindObjectOfType<GameSettings>();
         goblinTimer = GetComponentInChildren<GoblinTimer>();
+        _morseCode = GetComponent<MorseCode>();
     }
 
     private void SetTimer()
@@ -80,13 +82,14 @@ public class Goblin : MonoBehaviour
     public void GoAway()
     {
         gameSettings.RemoveGoblin(this);
+        goblinTimer.SetGoingAway();
         DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
         DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, exitPosition.position.x, 7.0f, false);});
     }
 
     public void HasBeenServed()
     {
-        _gameManager.GetComponent<ScoreManager>().AddGoblinFailed();
+        _gameManager.GetComponent<ScoreManager>().AddGoblinServed();
         GoAway();
     }
     #endregion

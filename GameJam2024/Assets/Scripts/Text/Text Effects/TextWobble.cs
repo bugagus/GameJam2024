@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering;
 using Unity.VisualScripting.FullSerializer;
+using System.Linq;
 
 public class TextWobble : MonoBehaviour
 {
@@ -16,17 +17,21 @@ public class TextWobble : MonoBehaviour
     List<int> wordIndexes;
     List<int> wordLengths;
 
+    bool _fail;
+
     [SerializeField] private bool wobbleByWord;
     [SerializeField][Range(0, 10)] private float xOffset;
     [SerializeField][Range(0, 10)] private float yOffset;
     [SerializeField] private Gradient color;
 
-    private Color[] _colors;
+    private List<Color> _colors;
     private int _currentLetter;
 
     // Start is called before the first frame update
     void Start()
     {
+        _fail = false;
+        _currentLetter = -1;
         textMesh = GetComponent<TMP_Text>();
 
         wordIndexes = new List<int> { 0 };
@@ -40,8 +45,7 @@ public class TextWobble : MonoBehaviour
         }
         wordLengths.Add(s.Length - wordIndexes[wordIndexes.Count - 1]);
 
-        textMesh.ForceMeshUpdate();
-        _colors = textMesh.mesh.colors;
+        _colors = new List<Color>(100);
     }
 
     // Update is called once per frame
@@ -70,29 +74,30 @@ public class TextWobble : MonoBehaviour
 
     private void WobbleByWord(Color[] colors)
     {
-        for (int w = 0; w < wordIndexes.Count; w++)
+        for (int i = 0; i < textMesh.textInfo.characterCount; i++)
         {
-            int wordIndex = wordIndexes[w];
-            Vector3 offset = Wobble(Time.time + w);
+            TMP_CharacterInfo c = textMesh.textInfo.characterInfo[i];
 
-            for (int i = 0; i < wordLengths[w]; i++)
-            {
-                TMP_CharacterInfo c = textMesh.textInfo.characterInfo[wordIndex + i];
+            int index = c.vertexIndex;
 
-                int index = c.vertexIndex;
+            Vector3 offset = Wobble(Time.time + i);
+            vertices[index] += offset;
+            vertices[index + 1] += offset;
+            vertices[index + 2] += offset;
+            vertices[index + 3] += offset;
 
-                colors[index] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index].x * 0.001f, 1f));
-                colors[index + 1] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 1].x * 0.001f, 1f));
-                colors[index + 2] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 2].x * 0.001f, 1f));
-                colors[index + 3] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 3].x * 0.001f, 1f));
+            colors[index] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index].x * 0.001f, 1f));
+            colors[index + 1] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 1].x * 0.001f, 1f));
+            colors[index + 2] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 2].x * 0.001f, 1f));
+            colors[index + 3] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 3].x * 0.001f, 1f));
 
-                vertices[index] += offset;
-                vertices[index + 1] += offset;
-                vertices[index + 2] += offset;
-                vertices[index + 3] += offset;
+            vertices[index] += offset;
+            vertices[index + 1] += offset;
+            vertices[index + 2] += offset;
+            vertices[index + 3] += offset;
 
 
-            }
+
         }
     }
 
@@ -115,13 +120,20 @@ public class TextWobble : MonoBehaviour
             // colors[index + 2] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 2].x * 0.001f, 1f));
             // colors[index + 3] = color.Evaluate(Mathf.Repeat(Time.time + vertices[index + 3].x * 0.001f, 1f));
 
-            if (i > _currentLetter) continue;
+            if (_fail)
+            {
+                colors[index] = _colors[index];
+                colors[index + 1] = _colors[index + 1];
+                colors[index + 2] = _colors[index + 2];
+                colors[index + 3] = _colors[index + 3];
+            }
+            else if (i > _currentLetter) continue;
             else
             {
                 colors[index] = _colors[index];
-                colors[index+1] = _colors[index+1];
-                colors[index+2] = _colors[index+2];
-                colors[index+3] = _colors[index+3];
+                colors[index + 1] = _colors[index + 1];
+                colors[index + 2] = _colors[index + 2];
+                colors[index + 3] = _colors[index + 3];
             }
         }
     }
@@ -133,12 +145,33 @@ public class TextWobble : MonoBehaviour
 
     public void SetColors(Color[] colors, int currentLetter)
     {
-        _colors = colors;
+        _colors = colors.ToList();
         _currentLetter = currentLetter;
     }
 
     public void SetWordComplete(bool state)
     {
         wobbleByWord = state;
+    }
+
+    public void Reset()
+    {
+        SetWordComplete(false);
+        // for (int i = 0; i < _colors.Count; i++)
+        // {
+        //     _colors[i] = Color.black;
+        // }
+
+        _currentLetter = -1;
+        _fail = false;
+    }
+
+    public void AllRed()
+    {
+        for (int i = 0; i < _colors.Count; i++)
+        {
+            _colors[i] = Color.red;
+        }
+        _fail = true;
     }
 }

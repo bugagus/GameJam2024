@@ -10,6 +10,7 @@ public class GoblinTimer : MonoBehaviour
 
     [SerializeField] private float timer;
     [SerializeField] private Slider slider;
+
     bool _isGoingAway;
     
     private void OnEnable()
@@ -20,6 +21,7 @@ public class GoblinTimer : MonoBehaviour
     private void Update()
     {
         slider.value += 1f/timer*Time.deltaTime;
+        // TODO THIS IS EXECUTING MANY TIMES BUT IT SHOULDN'T!!!!!!!!!!!!!!!
         if(slider.value == 1 && !_isGoingAway)
         {
             _gameManager.GetComponent<ScoreManager>().AddGoblinFailed();
@@ -37,5 +39,10 @@ public class GoblinTimer : MonoBehaviour
     {
         timer = a;
         slider.value = 0f;
+    }
+
+    public void SetGoingAway()
+    {
+        _isGoingAway = true;
     }
 }

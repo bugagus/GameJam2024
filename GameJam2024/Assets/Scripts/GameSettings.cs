@@ -7,6 +7,10 @@ using UnityEngine;
 public class GameSettings : MonoBehaviour
 {
     [SerializeField] Transform[] positions;
+
+    [SerializeField] private TextWobble _bigTextColorScript;
+
+
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
     private EnemyGenerator enemyGenerator;
@@ -20,9 +24,9 @@ public class GameSettings : MonoBehaviour
 
     public void StartGame()
     {
-        for(int i = 0; i < 5; i ++)
+        for (int i = 0; i < 5; i++)
         {
-            DOVirtual.DelayedCall(3.0f*i, ()=> {SpawnEnemy();} , false);
+            DOVirtual.DelayedCall(3.0f * i, () => { SpawnEnemy(); }, false);
         }
     }
 
@@ -36,27 +40,30 @@ public class GameSettings : MonoBehaviour
         int emptyIndex = FirstEmptyIndex();
         goblinList.Add(goblin);
         goblin.Advance(positions[emptyIndex]);
-        if(emptyIndex == 0)
-        {
-            FindObjectOfType<InputManager>().SetNextGoblin(goblin.GetComponent<MorseCode>());
-        }
     }
 
     public void RemoveGoblin(Goblin goblin)
     {
         Debug.Log("Quito goblin");
+
+
         int goblinIndex = goblinList.IndexOf(goblin);
-        for(int i = goblinIndex; i < goblinList.Count-1; i++)
+        if (goblinIndex == -1) return;
+        
+        if (goblinIndex == 0) _bigTextColorScript.AllRed();
+
+        for (int i = goblinIndex; i < goblinList.Count - 1; i++)
         {
-            goblinList[i] = goblinList[i+1];
-            goblinList[i].Advance(positions[i]);
-            if(i == 0)
+            Debug.Log(i + " Contador de cuantos hay" + goblinList.Count);
+            goblinList[i] = goblinList[i + 1];
+            if (goblinList[i] != null)
             {
-                FindObjectOfType<InputManager>().SetNextGoblin(goblinList[i].GetComponent<MorseCode>());
+                goblinList[i].Advance(positions[i]);
             }
         }
         goblinList.RemoveAt(goblinList.Count - 1);
         SpawnEnemy();
+
     }
 
     private int FirstEmptyIndex()
