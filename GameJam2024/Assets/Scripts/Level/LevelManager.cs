@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Level _currentLevel;
     private Dictionary<Level, LevelType> _levelDefinitions;
     private Dictionary<Level, int> _levelHighScores = new()
     {
@@ -20,9 +20,11 @@ public class LevelManager : MonoBehaviour
         _levelDefinitions = LevelDefinition.DefineLevels();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    public Level GetCurrentLevel => _currentLevel;
+    public void SetCurrentLevel(Level level) => _currentLevel = level;
 }

@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    private LevelManager _levelManager;
     public void gameScene()
     {
         //SceneManager.LoadScene("Game");
-        SceneManager.LoadScene("Main");
+        // Should go to level select screen when it's finished.
+        SceneManager.LoadScene("Day1");
+
+        _levelManager = FindObjectOfType<LevelManager>();
+        _levelManager.SetCurrentLevel(Level.Day1);
     }
 
     public void closeGame()

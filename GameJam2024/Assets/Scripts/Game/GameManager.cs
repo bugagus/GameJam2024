@@ -17,12 +17,16 @@ public class GameManager : MonoBehaviour
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
     private EnemyGenerator enemyGenerator;
+    private LevelManager _levelManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.DontDestroyOnLoad(this);
+        //GameObject.DontDestroyOnLoad(this);
         enemyGenerator = FindObjectOfType<EnemyGenerator>();
+        _levelManager = FindObjectOfType<LevelManager>();
+        Debug.Log("LOLOLOLOLOLOLOLO");
+        Debug.Log(_levelManager.GetCurrentLevel);
         StartGame();
     }
 
