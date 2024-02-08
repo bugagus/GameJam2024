@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class ScoreManager : MonoBehaviour
     private int _goblinsServed;
     private int _goblinsFailed;
 
+    [SerializeField] private Image stars;
+    [SerializeField] private float amountStars;
+    [SerializeField] private float constantStars;
+
+    public void Update()
+    {
+        stars.fillAmount -= constantStars*Time.deltaTime;
+    }
     public void AddScore()
     {
         _playerScore += 50 * (int)Math.Pow(2, _difficultyLevel);
@@ -25,6 +34,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddGoblinServed()
     {
+        stars.fillAmount += amountStars;
         _goblinsServed++;
         AddScore();
 
@@ -36,6 +46,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddGoblinFailed()
     {
+        stars.fillAmount -= 0.75f*amountStars;
         _goblinsFailed++;
         SubtractScore();
         
@@ -45,4 +56,5 @@ public class ScoreManager : MonoBehaviour
     public int GetDifficulty() => _difficultyLevel;
 
     public void AddDifficulty() => _difficultyLevel++;
+    
 }
