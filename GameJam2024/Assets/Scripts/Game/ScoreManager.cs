@@ -10,26 +10,30 @@ public class ScoreManager : MonoBehaviour
 
     private int _difficultyLevel;
     private int _playerScore;
-    private int _playerCombo;
+    private int _maxCombo;
+    private int _currentCombo;
     private int _goblinsServed;
     private int _goblinsFailed;
 
-    public void AddScore()
-    {
-        _playerScore += 50 * (int)Math.Pow(2, _difficultyLevel);
-        Debug.Log(_playerScore);
-    }
+    public int GetScore() => _playerScore;
+
+    //public void AddScore() => _playerScore += 50 * (int)Math.Pow(2, _difficultyLevel);
+
+    public void AddScore() => _playerScore += (int) Math.Round((1 + (0.2 * _currentCombo)) * 50);
 
     public void SubtractScore() => _playerScore = Math.Max(0, _playerScore - 50);
 
-    public void ResetCombo() => _playerCombo = 0;
-
     public void UpdateHighScore(Level level) => GameObject.FindObjectOfType<LevelManager>().UpdateHighScore(level, _playerScore);
+
+    public int GetMaxCombo() => _maxCombo;
+
+    public void ResetCombo() => _currentCombo = 0;
 
     public void AddGoblinServed()
     {
         _goblinsServed++;
-        _playerCombo++;
+        _currentCombo++;
+        _maxCombo = Math.Max(_maxCombo, _currentCombo);
         AddScore();
 
         if (_goblinsServed % goblinsToLevelUp == 0)

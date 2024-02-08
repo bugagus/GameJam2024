@@ -32,7 +32,7 @@ public static class LevelDefinition
 
         LevelType Day1 = new (
             Level.Day1,
-                60f,
+                15f,
                 false,
                 new List<EnemyType>
                 {

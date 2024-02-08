@@ -31,8 +31,5 @@ public class LevelManager : MonoBehaviour
 
     public Dictionary<Level, LevelType> GetLevelDefinitions => _levelDefinitions;
     
-    public void UpdateHighScore(Level level, int score) {
-        _levelHighScores[level] = Math.Max(_levelHighScores[level], score);
-        Debug.Log("Score: " + _levelHighScores[level]);
-    } 
+    public void UpdateHighScore(Level level, int score) => _levelHighScores[level] = Math.Max(_levelHighScores[level], score); 
 }

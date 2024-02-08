@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float bigTimer;
     private float _targetTime;
     private bool _timerOn;
+    private bool _showResults;
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
     private ScoreManager _scoreManager;
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (goblinList.Count == 0)
+            if (_showResults && goblinList.Count == 0)
                 FinishGame();
 
         }
@@ -75,14 +76,19 @@ public class GameManager : MonoBehaviour
     private void EndTimer()
     {
         _timerOn = false;
-        //_gameFinished = true;
+        _showResults = true;
     }
 
     private void FinishGame()
     {
+        _showResults = false;
+
         // TODO Show results screen
 
         UpdateHighScore();
+
+        Debug.Log("Score: " + _scoreManager.GetScore());
+        Debug.Log("Combo: " + _scoreManager.GetMaxCombo());
 
         // Should go to level select screen
         _levelManager.SetCurrentLevel(Level.Day2);
