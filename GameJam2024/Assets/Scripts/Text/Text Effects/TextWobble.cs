@@ -131,7 +131,7 @@ public class TextWobble : MonoBehaviour
 
             if (_fail)
             {
-                colors[index] = _colors[index];
+                colors[index] = _colors[index]; //<----AQUI DA UN PUTO ERROR RAFA
                 colors[index + 1] = _colors[index + 1];
                 colors[index + 2] = _colors[index + 2];
                 colors[index + 3] = _colors[index + 3];

@@ -7,12 +7,14 @@ public class InputManager : MonoBehaviour
     [SerializeField] float holdTime;
     public InputControls _input;
     [SerializeField] private MorseCode nextGoblinMorse;
+    private GameManager _gameManager;
     private float lastStartTime;
     private float lastEndTime;
 
     private void Awake()
     {
         _input = new InputControls();
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnEnable()
@@ -57,6 +59,7 @@ public class InputManager : MonoBehaviour
         }
         else{
             nextGoblinMorse.ResetWord();
+            _gameManager.GetComponent<CameraManager>().ShakeCamera();
         }   
     }
 
