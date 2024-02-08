@@ -14,10 +14,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float smallTimer;
     [SerializeField] private float normalTimer;
     [SerializeField] private float bigTimer;
+    private float _targetTime;
+    private bool _timerOn;
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
     private EnemyGenerator enemyGenerator;
     private LevelManager _levelManager;
+    private LevelType _level;
 
     // Start is called before the first frame update
     void Start()
@@ -25,31 +28,72 @@ public class GameManager : MonoBehaviour
         //GameObject.DontDestroyOnLoad(this);
         enemyGenerator = FindObjectOfType<EnemyGenerator>();
         _levelManager = FindObjectOfType<LevelManager>();
-        Debug.Log("LOLOLOLOLOLOLOLO");
-        Debug.Log(_levelManager.GetCurrentLevel);
+
+        _level = _levelManager.GetLevelDefinitions[_levelManager.GetCurrentLevel];
+
+        Debug.Log(_levelManager.GetLevelDefinitions[_levelManager.GetCurrentLevel].timer);
+        Debug.Log(_level.timer);
         StartGame();
+    }
+
+    void Update() {
+        if (_timerOn)
+        {
+            _targetTime -= Time.deltaTime;
+
+            if (_targetTime <= 0.0f)
+                EndTimer();
+        }
+        else
+        {
+            if (goblinList.Count == 0)
+                FinishGame();
+
+        }
     }
 
     public void StartGame()
     {
+        if (!_level.infinite)
+            StartTimer();
+
         for (int i = 0; i < 5; i++)
         {
-            DOVirtual.DelayedCall(3.0f * i, () => { SpawnEnemy(); }, false);
+            DOVirtual.DelayedCall(3.0f * i, () => { SpawnGoblin(); }, false);
         }
         GetComponent<CameraManager>().FindCamera();
     }
 
-    public void SpawnEnemy()
+    private void StartTimer()
     {
-        enemyGenerator.SpawnEnemy();
+        _targetTime = _level.timer;
+        _timerOn = true;
     }
 
-    public void AddGoblin(Goblin goblin)
+    private void EndTimer()
     {
+        _timerOn = false;
+        //_gameFinished = true;
+    }
+
+    private void FinishGame()
+    {
+        // TODO Show results screen
+
+        UpdateHighScore();
+
+        // Should go to level select screen
+        _levelManager.SetCurrentLevel(Level.Day2);
+        SceneManager.LoadScene("Day2");
+    }
+
+    public void SpawnGoblin()
+    {
+        Goblin goblin = enemyGenerator.SpawnEnemy();
         int emptyIndex = FirstEmptyIndex();
         goblinList.Add(goblin);
         goblin.Advance(positions[emptyIndex]);
-    }
+    } 
 
     public void RemoveGoblin(Goblin goblin)
     {
@@ -71,7 +115,8 @@ public class GameManager : MonoBehaviour
             }
         }
         goblinList.RemoveAt(goblinList.Count - 1);
-        SpawnEnemy();
+        if (_timerOn)
+            SpawnGoblin();
 
     }
 
@@ -93,6 +138,6 @@ public class GameManager : MonoBehaviour
         return 0f;
     }
 
-
-
+    private void UpdateHighScore() => GetComponent<ScoreManager>().UpdateHighScore(_level.level);
+    
 }

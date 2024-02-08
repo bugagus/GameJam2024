@@ -45,7 +45,7 @@ public class Goblin : MonoBehaviour
     {
         transform.position = gameManager.spawnPos.position;
         SetTimer();
-        gameManager.AddGoblin(this);
+        //gameManager.AddGoblin(this);
     }
     
     private void Update()

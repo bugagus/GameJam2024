@@ -21,9 +21,12 @@ public class ScoreManager : MonoBehaviour
 
     public void SubtractScore() => _playerScore = Math.Max(0, _playerScore - 50);
 
+    public void UpdateHighScore(Level level) => GameObject.FindObjectOfType<LevelManager>().UpdateHighScore(level, _playerScore);
+
     public void AddGoblinServed()
     {
         _goblinsServed++;
+        AddScore();
 
         if (_goblinsServed % goblinsToLevelUp == 0)
             _difficultyLevel++;
@@ -34,6 +37,8 @@ public class ScoreManager : MonoBehaviour
     public void AddGoblinFailed()
     {
         _goblinsFailed++;
+        SubtractScore();
+        
         Debug.Log("Goblins fallados: " + _goblinsFailed);
     }
 

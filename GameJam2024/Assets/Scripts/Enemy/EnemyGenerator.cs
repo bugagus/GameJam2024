@@ -73,12 +73,13 @@ public class EnemyGenerator : MonoBehaviour
         return 1;
     }
 
-    public int SpawnEnemy() {
+    // TODO Change all 'Enemy' to 'Goblin'
+    public Goblin SpawnEnemy() {
         EnemyType enemyType = _GetRandomEnemyType();
         int firstFreeIndex = _GetFirstDisabledEnemyObjectIndex(enemyType);
         GameObject enemy = _enemyList[enemyType][firstFreeIndex];
         Debug.Log(enemy.name);
         enemy.SetActive(true);
-        return firstFreeIndex;
+        return enemy.GetComponent<Goblin>();
     }
 }

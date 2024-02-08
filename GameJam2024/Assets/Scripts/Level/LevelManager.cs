@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class LevelManager : MonoBehaviour
         {Level.Day3, 0},
         {Level.InfiniteMode, 0},
     };
+
     void Start()
     {
         GameObject.DontDestroyOnLoad(this);
@@ -24,7 +26,13 @@ public class LevelManager : MonoBehaviour
     {
         
     }
-
     public Level GetCurrentLevel => _currentLevel;
     public void SetCurrentLevel(Level level) => _currentLevel = level;
+
+    public Dictionary<Level, LevelType> GetLevelDefinitions => _levelDefinitions;
+    
+    public void UpdateHighScore(Level level, int score) {
+        _levelHighScores[level] = Math.Max(_levelHighScores[level], score);
+        Debug.Log("Score: " + _levelHighScores[level]);
+    } 
 }
