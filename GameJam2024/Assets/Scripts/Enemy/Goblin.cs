@@ -43,6 +43,7 @@ public class Goblin : MonoBehaviour
 
     private void OnEnable()
     {
+        _isAdvancing = false;
         transform.position = gameManager.spawnPos.position;
         SetTimer();
         gameManager.AddGoblin(this);
@@ -52,16 +53,15 @@ public class Goblin : MonoBehaviour
     {
         if(_isAdvancing)
         {
+            _rb.velocity = new Vector3(-velocity, 0f, 0f);
             if(_transform.position.x <= _desiredPos.position.x)
             {
                 Stop();
             }
-        }else
+        }
+        if(!_isAdvancing && _rb.isKinematic == false)
         {
-            if(_rb.velocity != Vector3.zero)
-            {
-                _rb.velocity = Vector3.zero;
-            }
+            _rb.isKinematic = true;
         }
 
     }
@@ -69,16 +69,16 @@ public class Goblin : MonoBehaviour
     #region MOVIMIENTO
     public void Advance(Transform pos)
     {
-        _rb.velocity = new Vector3(-velocity, 0f, 0f);
+        _rb.isKinematic = false;
         _isAdvancing = true;
         _desiredPos = pos;
     }
 
     public void Stop()
     {
+        _rb.isKinematic = true;
         _isAdvancing = false;
         _transform.position = new Vector3(_desiredPos.position.x, _transform.position.y, _transform.position.z);
-        _rb.velocity = Vector3.zero;
     }
 
     public void GoAway()

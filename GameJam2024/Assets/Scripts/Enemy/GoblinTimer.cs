@@ -25,7 +25,6 @@ public class GoblinTimer : MonoBehaviour
         if(!_timeStopped)
         {
             slider.value += 1f/timer*Time.deltaTime;
-            // TODO THIS IS EXECUTING MANY TIMES BUT IT SHOULDN'T!!!!!!!!!!!!!!!
             if(slider.value == 1 && !_isGoingAway)
             {
                 _gameManager.GetComponent<ScoreManager>().AddGoblinFailed();
