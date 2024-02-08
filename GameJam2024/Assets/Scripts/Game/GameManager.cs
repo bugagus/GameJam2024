@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.DontDestroyOnLoad(this);
         enemyGenerator = FindObjectOfType<EnemyGenerator>();
         StartGame();
     }
