@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2328159828672915796}
   - component: {fileID: 3058185748725303557}
   - component: {fileID: 8226247569167996066}
+  - component: {fileID: 7397342613758227737}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -66,6 +67,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _bigTextColorScript: {fileID: 0}
+  smallTimer: 20
+  normalTimer: 30
+  bigTimer: 40
   spawnPos: {fileID: 0}
 --- !u!114 &8226247569167996066
 MonoBehaviour:
@@ -79,3 +83,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea6d7a4f79ca943ab1d0c968b6d6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7397342613758227737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3457441712353513939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6f78763abac1b439cbb20b925cb50f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 0.5
+  shakeTiming: 0.25

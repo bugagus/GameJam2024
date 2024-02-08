@@ -5,7 +5,8 @@ using System.Linq;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
-public class GameSettings : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class GameManager : MonoBehaviour
 {
     [SerializeField] Transform[] positions;
 
@@ -30,6 +31,7 @@ public class GameSettings : MonoBehaviour
         {
             DOVirtual.DelayedCall(3.0f * i, () => { SpawnEnemy(); }, false);
         }
+        GetComponent<CameraManager>().FindCamera();
     }
 
     public void SpawnEnemy()
@@ -85,6 +87,7 @@ public class GameSettings : MonoBehaviour
         }
         return 0f;
     }
+
 
 
 }

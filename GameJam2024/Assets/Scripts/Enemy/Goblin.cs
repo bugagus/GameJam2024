@@ -11,7 +11,7 @@ public class Goblin : MonoBehaviour
     [SerializeField] private Transform exitPosition;
     [SerializeField] float velocity;
     public EnemyType enemyType;
-    private GameSettings gameSettings;
+    private GameManager gameManager;
     private GoblinTimer goblinTimer;
     private Transform _desiredPos;
     private bool _isAdvancing;
@@ -30,22 +30,22 @@ public class Goblin : MonoBehaviour
         _gameManager = GameObject.Find("GameManager");
         _rb = GetComponent<Rigidbody>();
         _transform = GetComponent<Transform>();
-        gameSettings = FindObjectOfType<GameSettings>();
+        gameManager = FindObjectOfType<GameManager>();
         goblinTimer = GetComponentInChildren<GoblinTimer>();
     }
 
     private void SetTimer()
     {
         float difficultyLevel = _gameManager.GetComponent<ScoreManager>().GetDifficulty();
-        float timer = (1 + (difficultyLevel * difficultyFactor)) * gameSettings.GetTimerGoblin(enemyType);
+        float timer = (1 + (difficultyLevel * difficultyFactor)) * gameManager.GetTimerGoblin(enemyType);
         goblinTimer.SetTimer(timer);
     }
 
     private void OnEnable()
     {
-        transform.position = gameSettings.spawnPos.position;
+        transform.position = gameManager.spawnPos.position;
         SetTimer();
-        gameSettings.AddGoblin(this);
+        gameManager.AddGoblin(this);
     }
     
     private void Update()
@@ -80,7 +80,7 @@ public class Goblin : MonoBehaviour
     public void GoAway()
     {
         GetComponentInChildren<Animator>().SetTrigger("DisappearText");
-        gameSettings.RemoveGoblin(this);
+        gameManager.RemoveGoblin(this);
         goblinTimer.SetGoingAway();
         DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
         DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, exitPosition.position.x, 7.0f, false);});
