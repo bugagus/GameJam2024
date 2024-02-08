@@ -38,20 +38,14 @@ public class MorseCode : MonoBehaviour
         PrintGoblinText();
     }
 
-    private void Update()
-    {
-    }
-
     public char GetCurrentLetter()
     {
         // La primera letra no se debe pintar al iniciar por lo que la primera letra empieza en -1
-        Debug.Log(_currentLetter);
         return _codeArray[_currentLetter + 1];
     }
 
     public void NextLetter()
     {
-        Debug.Log("AAAAAAAAAAAAAAA");
         //AQUI IRIA LA LLAMADA AL TEXTO PARA QUE CAMBIE DE COLOR Y/O HAGA ANIMACIONES AL HABER ACERTADO
 
 
@@ -101,7 +95,6 @@ public class MorseCode : MonoBehaviour
 
     public void PrintGlobalText()
     {
-        Debug.Log("Printeo, soy el goblin " + this.gameObject);
         _bigText.text = _code;
     }
 
@@ -109,8 +102,6 @@ public class MorseCode : MonoBehaviour
     {
         if (a.CompareTag("PrimeroFila"))
         {
-            Debug.Log("HOlaaaa");
-
             FindObjectOfType<InputManager>().SetNextGoblin(this);
             animator.SetTrigger("AppearText");
             PrintGlobalText();

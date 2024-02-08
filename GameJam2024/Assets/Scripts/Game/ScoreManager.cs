@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Grade {
     SS, S, A, B, C, D
@@ -10,12 +11,21 @@ public enum Grade {
 public class ScoreManager : MonoBehaviour
 {
 
+    [SerializeField] private Image stars;
+    [SerializeField] private float amountStars;
+    [SerializeField] private float constantStars;
+
     private int _playerScore;
     private int _maxCombo;
     private int _currentCombo;
     private int _goblinsServed;
     private int _goblinsFailed;
     private int _wordsFailed;
+
+    public void Update()
+    {
+        stars.fillAmount -= constantStars*Time.deltaTime;
+    }
 
     public int GetScore() => _playerScore;
 
@@ -33,6 +43,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddGoblinServed()
     {
+        stars.fillAmount += amountStars;
         _goblinsServed++;
         _currentCombo++;
         _maxCombo = Math.Max(_maxCombo, _currentCombo);
@@ -41,6 +52,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddGoblinFailed()
     {
+        stars.fillAmount -= 0.75f*amountStars;
         _goblinsFailed++;
         SubtractScore();
     }

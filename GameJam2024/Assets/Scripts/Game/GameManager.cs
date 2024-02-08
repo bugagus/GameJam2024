@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Transform[] positions;
-
     [SerializeField] private TextWobble _bigTextColorScript;
     [SerializeField] private float smallTimer;
     [SerializeField] private float normalTimer;
@@ -23,6 +22,7 @@ public class GameManager : MonoBehaviour
     private EnemyGenerator _enemyGenerator;
     private LevelManager _levelManager;
     private LevelType _level;
+    [SerializeField] private AbilityManager _abilityManager;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log(_levelManager.GetLevelDefinitions[_levelManager.GetCurrentLevel].timer);
         Debug.Log(_level.timer);
+        _abilityManager = FindObjectOfType<AbilityManager>();
         StartGame();
     }
 
@@ -100,19 +101,19 @@ public class GameManager : MonoBehaviour
     {
         Goblin goblin = _enemyGenerator.SpawnEnemy();
         int emptyIndex = FirstEmptyIndex();
+        Debug.Log("Voy al index" + emptyIndex);
         goblinList.Add(goblin);
         goblin.Advance(positions[emptyIndex]);
     } 
 
     public void RemoveGoblin(Goblin goblin)
     {
-        Debug.Log("Quito goblin");
-
-
         int goblinIndex = goblinList.IndexOf(goblin);
         if (goblinIndex == -1) return;
         
-        if (goblinIndex == 0) _bigTextColorScript.AllRed();
+        if (goblinIndex == 0){
+            _bigTextColorScript.AllRed();
+        }
 
         for (int i = goblinIndex; i < goblinList.Count - 1; i++)
         {
@@ -132,6 +133,24 @@ public class GameManager : MonoBehaviour
     private int FirstEmptyIndex()
     {
         return goblinList.Count;
+    }
+
+    public void AutoServe()
+    {
+        List<Goblin> goblinListAux = new ();
+        foreach(Goblin a in goblinList)
+        {
+            goblinListAux.Add(a);
+        }
+        goblinList.Clear();
+        foreach(Goblin a in goblinListAux)
+        {
+            a.GoAway();
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            DOVirtual.DelayedCall(3.0f * i, () => { SpawnGoblin(); }, false);
+        }
     }
 
     public float GetTimerGoblin(EnemyType type)
@@ -154,5 +173,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateHighScore() => _scoreManager.UpdateHighScore(_level.level);
-    
+
+    public List<Goblin> GetGoblinList() => goblinList;
+
 }
