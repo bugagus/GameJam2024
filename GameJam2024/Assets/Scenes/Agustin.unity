@@ -1141,6 +1141,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1172424816098033223, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1249561168385786915, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1157,6 +1161,10 @@ PrefabInstance:
       propertyPath: exitPosition
       value: 
       objectReference: {fileID: 1377843990}
+    - target: {fileID: 1351533607048530259, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1398915194244717252, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: _bigTextColorScript
       value: 
@@ -1189,6 +1197,10 @@ PrefabInstance:
       propertyPath: _bigTextColorScript
       value: 
       objectReference: {fileID: 710849927}
+    - target: {fileID: 1820101628943843767, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1833309270213965210, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: _bigText
       value: 
@@ -1285,6 +1297,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3609492826971929306, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3833576080009078770, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1333,9 +1349,17 @@ PrefabInstance:
       propertyPath: _bigTextColorScript
       value: 
       objectReference: {fileID: 710849927}
+    - target: {fileID: 4464811750816049534, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4494868701962691598, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502756409751161819, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4640878870044202326, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1361,6 +1385,10 @@ PrefabInstance:
       propertyPath: _bigTextColorScript
       value: 
       objectReference: {fileID: 710849927}
+    - target: {fileID: 4919074392293916330, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4947102648565983686, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1373,6 +1401,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5112202587750564248, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5119108776931626942, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: _bigTextColorScript
       value: 
@@ -1381,6 +1413,10 @@ PrefabInstance:
       propertyPath: _bigTextColorScript
       value: 
       objectReference: {fileID: 710849927}
+    - target: {fileID: 5163562636853905253, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5355371044344562100, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: _bigText
       value: 
@@ -1457,6 +1493,10 @@ PrefabInstance:
       propertyPath: _bigTextColorScript
       value: 
       objectReference: {fileID: 710849927}
+    - target: {fileID: 5976200410336705719, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6037679116566157421, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: _bigTextColorScript
       value: 
@@ -1489,10 +1529,22 @@ PrefabInstance:
       propertyPath: exitPosition
       value: 
       objectReference: {fileID: 1377843990}
+    - target: {fileID: 7198606604699431962, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211702951680304413, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7524937176812859938, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: _bigTextColorScript
       value: 
       objectReference: {fileID: 710849927}
+    - target: {fileID: 7597132410369053931, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7669308109901418794, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: _bigTextColorScript
       value: 
@@ -1569,6 +1621,10 @@ PrefabInstance:
       propertyPath: _bigTextColorScript
       value: 
       objectReference: {fileID: 710849927}
+    - target: {fileID: 8787768211088834682, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8818792733541600522, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1589,10 +1645,18 @@ PrefabInstance:
       propertyPath: _bigTextColorScript
       value: 
       objectReference: {fileID: 710849927}
+    - target: {fileID: 9082730073674616354, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9163076296491920120, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: _bigTextColorScript
       value: 
       objectReference: {fileID: 710849927}
+    - target: {fileID: 9167572126938339993, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9212801306792807925, guid: c06b37af0766d2643a3470a5d979c891, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2984,7 +3048,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
