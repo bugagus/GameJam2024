@@ -41,6 +41,8 @@ public class ScoreManager : MonoBehaviour
 
     public void AddWordsFailed() => _wordsFailed++;
 
+    public int GetGoblinsServed() => _goblinsServed;
+
     public void AddGoblinServed()
     {
         stars.fillAmount += amountStars;

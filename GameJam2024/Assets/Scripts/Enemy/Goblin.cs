@@ -12,6 +12,8 @@ public class Goblin : MonoBehaviour
     [SerializeField] float velocity;
     public EnemyType enemyType;
     private GameManager gameManager;
+
+    private AbilityManager abilityManager;
     private GoblinTimer goblinTimer;
     private Transform _desiredPos;
     private bool _isAdvancing;
@@ -31,6 +33,7 @@ public class Goblin : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _transform = GetComponent<Transform>();
         gameManager = FindObjectOfType<GameManager>();
+        abilityManager = FindObjectOfType<AbilityManager>();
         goblinTimer = GetComponentInChildren<GoblinTimer>();
     }
 
@@ -91,8 +94,8 @@ public class Goblin : MonoBehaviour
 
     public void HasBeenServed()
     {
-        FindObjectOfType<AbilityManager>().AddGoblin();
         _gameManager.GetComponent<ScoreManager>().AddGoblinServed();
+        //abilityManager.CheckAbility();    // Desactivado hasta que no de NullReferenceException
         GoAway();
     }
     #endregion

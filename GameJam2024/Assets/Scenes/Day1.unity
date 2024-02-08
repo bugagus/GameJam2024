@@ -1859,6 +1859,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeIntensity: 0.5
   shakeTiming: 0.25
+--- !u!114 &1035023633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035023631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12cf2bedfa9cc44b84544fcf34b3d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToFreezeGoblins: 2
+  ToServeGoblins: 3
+  freezeTime: 4
 --- !u!1 &1141107502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,6 +3011,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3457441712353513939, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1035023632}
+    - targetCorrespondingSourceObject: {fileID: 3457441712353513939, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1035023633}
   m_SourcePrefab: {fileID: 100100000, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

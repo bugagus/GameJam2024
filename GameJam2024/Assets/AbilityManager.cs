@@ -14,20 +14,18 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private float freezeTime;
     List<Action> abilities = new();
     public static bool timeStop;
-    private int _goblinsServed;
-    [SerializeField] private ScoreManager scoreManager;
-    [SerializeField] private GameManager gameManager;
+    private GameManager _gameManager;
+    private ScoreManager _scoreManager;
 
     private void Start()
     {
         abilities.Add(TimeStopAbility);
         abilities.Add(AutoServeAbility);
-        _goblinsServed = 0;     // It's in scoreManager?
     }
     private void StartGame()
     {
-        scoreManager = FindObjectOfType<ScoreManager>();
-        gameManager = FindObjectOfType<GameManager>();
+        _gameManager = FindObjectOfType<GameManager>();
+        _scoreManager = FindObjectOfType<ScoreManager>();
     }
     public void UsePower(int i)
     {
@@ -57,15 +55,15 @@ public class AbilityManager : MonoBehaviour
     {
         List<Goblin> goblinListAux = FindObjectOfType<GameManager>().GetGoblinList();
         int points = goblinListAux.Count;
-        gameManager.AutoServe();
-        for(int i = 0; i < 5 ; i++) scoreManager.AddGoblinServed();
+        _gameManager.AutoServe();
+        for(int i = 0; i < 5 ; i++) _scoreManager.AddGoblinServed();
 
 
     }
 
-    public void AddGoblin()
+    public void CheckAbility()
     {
-        _goblinsServed++;
+        int _goblinsServed = _scoreManager.GetGoblinsServed();
         if(_goblinsServed % ToFreezeGoblins == 0)
             UsePower(0);
         if(_goblinsServed % ToServeGoblins == 0)
