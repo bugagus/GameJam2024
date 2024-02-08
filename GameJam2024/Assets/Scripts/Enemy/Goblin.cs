@@ -36,8 +36,7 @@ public class Goblin : MonoBehaviour
 
     private void SetTimer()
     {
-        float difficultyLevel = _gameManager.GetComponent<ScoreManager>().GetDifficulty();
-        float timer = (1 + (difficultyLevel * difficultyFactor)) * gameManager.GetTimerGoblin(enemyType);
+        float timer = gameManager.GetTimerGoblin(enemyType);
         goblinTimer.SetTimer(timer);
     }
 
