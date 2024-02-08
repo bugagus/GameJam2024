@@ -58,6 +58,7 @@ public class InputManager : MonoBehaviour
             nextGoblinMorse.NextLetter();
         }
         else{
+            _gameManager.ResetCombo();
             nextGoblinMorse.ResetWord();
             _gameManager.GetComponent<CameraManager>().ShakeCamera();
         }   

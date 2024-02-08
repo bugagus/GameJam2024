@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
     private bool _timerOn;
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
-    private EnemyGenerator enemyGenerator;
+    private ScoreManager _scoreManager;
+    private EnemyGenerator _enemyGenerator;
     private LevelManager _levelManager;
     private LevelType _level;
 
@@ -26,7 +27,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //GameObject.DontDestroyOnLoad(this);
-        enemyGenerator = FindObjectOfType<EnemyGenerator>();
+        _scoreManager = GetComponent<ScoreManager>();
+        _enemyGenerator = FindObjectOfType<EnemyGenerator>();
         _levelManager = FindObjectOfType<LevelManager>();
 
         _level = _levelManager.GetLevelDefinitions[_levelManager.GetCurrentLevel];
@@ -89,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnGoblin()
     {
-        Goblin goblin = enemyGenerator.SpawnEnemy();
+        Goblin goblin = _enemyGenerator.SpawnEnemy();
         int emptyIndex = FirstEmptyIndex();
         goblinList.Add(goblin);
         goblin.Advance(positions[emptyIndex]);
@@ -138,6 +140,8 @@ public class GameManager : MonoBehaviour
         return 0f;
     }
 
-    private void UpdateHighScore() => GetComponent<ScoreManager>().UpdateHighScore(_level.level);
+    public void ResetCombo() => _scoreManager.ResetCombo();
+
+    private void UpdateHighScore() => _scoreManager.UpdateHighScore(_level.level);
     
 }

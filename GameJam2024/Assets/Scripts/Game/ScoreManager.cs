@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
 
     private int _difficultyLevel;
     private int _playerScore;
+    private int _playerCombo;
     private int _goblinsServed;
     private int _goblinsFailed;
 
@@ -21,11 +22,14 @@ public class ScoreManager : MonoBehaviour
 
     public void SubtractScore() => _playerScore = Math.Max(0, _playerScore - 50);
 
+    public void ResetCombo() => _playerCombo = 0;
+
     public void UpdateHighScore(Level level) => GameObject.FindObjectOfType<LevelManager>().UpdateHighScore(level, _playerScore);
 
     public void AddGoblinServed()
     {
         _goblinsServed++;
+        _playerCombo++;
         AddScore();
 
         if (_goblinsServed % goblinsToLevelUp == 0)
