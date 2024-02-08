@@ -41,7 +41,7 @@ public class ScoreManager : MonoBehaviour
         if (_goblinsServed % goblinsToLevelUp == 0)
             _difficultyLevel++;
     
-        Debug.Log("Goblins servidos: " + _goblinsServed);
+        //Debug.Log("Goblins servidos: " + _goblinsServed);
     }
 
     public void AddGoblinFailed()
@@ -49,8 +49,8 @@ public class ScoreManager : MonoBehaviour
         stars.fillAmount -= 0.75f*amountStars;
         _goblinsFailed++;
         SubtractScore();
-        
-        Debug.Log("Goblins fallados: " + _goblinsFailed);
+        //Debug.Log("Goblins fallados: " + _goblinsFailed);
+
     }
 
     public int GetDifficulty() => _difficultyLevel;
