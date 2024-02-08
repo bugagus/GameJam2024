@@ -11,21 +11,26 @@ public class GoblinTimer : MonoBehaviour
     [SerializeField] private float timer;
     [SerializeField] private Slider slider;
 
-    bool _isGoingAway;
+    private bool _timeStopped;
+    private bool _isGoingAway;
     
     private void OnEnable()
     {
         _gameManager = GameObject.Find("GameManager");
         _isGoingAway = false;
+        _timeStopped = AbilityManager.timeStop;
     }
     private void Update()
     {
-        slider.value += 1f/timer*Time.deltaTime;
-        // TODO THIS IS EXECUTING MANY TIMES BUT IT SHOULDN'T!!!!!!!!!!!!!!!
-        if(slider.value == 1 && !_isGoingAway)
+        if(!_timeStopped)
         {
-            _gameManager.GetComponent<ScoreManager>().AddGoblinFailed();
-            GoAway();
+            slider.value += 1f/timer*Time.deltaTime;
+            // TODO THIS IS EXECUTING MANY TIMES BUT IT SHOULDN'T!!!!!!!!!!!!!!!
+            if(slider.value == 1 && !_isGoingAway)
+            {
+                _gameManager.GetComponent<ScoreManager>().AddGoblinFailed();
+                GoAway();
+            }
         }
     }
 
@@ -44,5 +49,10 @@ public class GoblinTimer : MonoBehaviour
     public void SetGoingAway()
     {
         _isGoingAway = true;
+    }
+
+    public void SetTimeStop(bool a)
+    {
+        _timeStopped = a;
     }
 }

@@ -35,13 +35,11 @@ public class InputManager : MonoBehaviour
 
     private void StartTick(InputAction.CallbackContext context)
     {
-        Debug.Log("Tick started");
         lastStartTime = Time.time;
     }
 
     private void EndTick(InputAction.CallbackContext context)
     {
-        Debug.Log("Tick ended");
         lastEndTime = Time.time;
         CheckLetter();
     }
@@ -49,7 +47,6 @@ public class InputManager : MonoBehaviour
     private void CheckLetter()
     {
         char typedLetter;
-        Debug.Log(nextGoblinMorse);
         if (nextGoblinMorse == null) return;
         char desiredLetter = nextGoblinMorse.GetCurrentLetter(); 
         typedLetter = (lastEndTime - lastStartTime < holdTime)? 'E' : 'T';

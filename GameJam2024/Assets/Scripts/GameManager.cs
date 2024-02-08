@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Transform[] positions;
-
     [SerializeField] private TextWobble _bigTextColorScript;
     [SerializeField] private float smallTimer;
     [SerializeField] private float normalTimer;
@@ -17,11 +16,13 @@ public class GameManager : MonoBehaviour
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
     private EnemyGenerator enemyGenerator;
+    [SerializeField] private AbilityManager _abilityManager;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyGenerator = FindObjectOfType<EnemyGenerator>();
+        _abilityManager = FindObjectOfType<AbilityManager>();
         StartGame();
     }
 
@@ -42,19 +43,19 @@ public class GameManager : MonoBehaviour
     public void AddGoblin(Goblin goblin)
     {
         int emptyIndex = FirstEmptyIndex();
+        Debug.Log("Voy al index" + emptyIndex);
         goblinList.Add(goblin);
         goblin.Advance(positions[emptyIndex]);
     }
 
     public void RemoveGoblin(Goblin goblin)
     {
-        Debug.Log("Quito goblin");
-
-
         int goblinIndex = goblinList.IndexOf(goblin);
         if (goblinIndex == -1) return;
         
-        if (goblinIndex == 0) _bigTextColorScript.AllRed();
+        if (goblinIndex == 0){
+            _bigTextColorScript.AllRed();
+        }
 
         for (int i = goblinIndex; i < goblinList.Count - 1; i++)
         {
@@ -75,6 +76,24 @@ public class GameManager : MonoBehaviour
         return goblinList.Count;
     }
 
+    public void AutoServe()
+    {
+        List<Goblin> goblinListAux = new ();
+        foreach(Goblin a in goblinList)
+        {
+            goblinListAux.Add(a);
+        }
+        goblinList.Clear();
+        foreach(Goblin a in goblinListAux)
+        {
+            a.GoAway();
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            DOVirtual.DelayedCall(3.0f * i, () => { SpawnEnemy(); }, false);
+        }
+    }
+
     public float GetTimerGoblin(EnemyType type)
     {
         switch(type){
@@ -88,6 +107,6 @@ public class GameManager : MonoBehaviour
         return 0f;
     }
 
-
+    public List<Goblin> GetGoblinList() => goblinList;
 
 }

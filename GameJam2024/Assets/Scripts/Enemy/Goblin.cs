@@ -54,24 +54,28 @@ public class Goblin : MonoBehaviour
         {
             if(_transform.position.x <= _desiredPos.position.x)
             {
-                Debug.Log("Estoy avanzando");
                 Stop();
             }
+        }else
+        {
+            if(_rb.velocity != Vector3.zero)
+            {
+                _rb.velocity = Vector3.zero;
+            }
         }
+
     }
     
     #region MOVIMIENTO
     public void Advance(Transform pos)
     {
         _rb.velocity = new Vector3(-velocity, 0f, 0f);
-        Debug.Log("Empiezo a avanzar");
         _isAdvancing = true;
         _desiredPos = pos;
     }
 
     public void Stop()
     {
-        Debug.Log("He llegado");
         _isAdvancing = false;
         _transform.position = new Vector3(_desiredPos.position.x, _transform.position.y, _transform.position.z);
         _rb.velocity = Vector3.zero;
@@ -88,6 +92,7 @@ public class Goblin : MonoBehaviour
 
     public void HasBeenServed()
     {
+        FindObjectOfType<AbilityManager>().AddGoblin();
         _gameManager.GetComponent<ScoreManager>().AddGoblinServed();
         GoAway();
     }
