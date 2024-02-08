@@ -88,7 +88,8 @@ public class GameManager : MonoBehaviour
         UpdateHighScore();
 
         Debug.Log("Score: " + _scoreManager.GetScore());
-        Debug.Log("Combo: " + _scoreManager.GetMaxCombo());
+        Debug.Log("Max Combo: " + _scoreManager.GetMaxCombo());
+        Debug.Log("Grade: " + _scoreManager.GetGrade());
 
         // Should go to level select screen
         _levelManager.SetCurrentLevel(Level.Day2);
@@ -146,7 +147,11 @@ public class GameManager : MonoBehaviour
         return 0f;
     }
 
-    public void ResetCombo() => _scoreManager.ResetCombo();
+    public void ResetCombo()
+    {
+        _scoreManager.ResetCombo();
+        _scoreManager.AddWordsFailed();
+    }
 
     private void UpdateHighScore() => _scoreManager.UpdateHighScore(_level.level);
     
