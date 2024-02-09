@@ -16,6 +16,7 @@ public class AbilityManager : MonoBehaviour
     public static bool timeStop;
     private GameManager _gameManager;
     private ScoreManager _scoreManager;
+    private int _goblinToPower;
 
     private void Start()
     {
@@ -56,6 +57,7 @@ public class AbilityManager : MonoBehaviour
         List<Goblin> goblinListAux = FindObjectOfType<GameManager>().GetGoblinList();
         int points = goblinListAux.Count;
         _gameManager.AutoServe();
+        AddGoblin();
         for(int i = 0; i < 5 ; i++) _scoreManager.AddGoblinServed();
 
 
@@ -63,10 +65,14 @@ public class AbilityManager : MonoBehaviour
 
     public void CheckAbility()
     {
-        int _goblinsServed = _scoreManager.GetGoblinsServed();
-        if(_goblinsServed % ToFreezeGoblins == 0)
+        if(_goblinToPower % ToFreezeGoblins == 0)
             UsePower(0);
-        if(_goblinsServed % ToServeGoblins == 0)
+        if(_goblinToPower % ToServeGoblins == 0)
             UsePower(1);
+    }
+
+    public void AddGoblin()
+    {
+        _goblinToPower++;
     }
 }
