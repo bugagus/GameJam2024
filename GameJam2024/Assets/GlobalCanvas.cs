@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using UnityEngine.SceneManagement;
 
 public class GlobalCanvas : MonoBehaviour
 {
@@ -24,5 +26,10 @@ public class GlobalCanvas : MonoBehaviour
         scoreF.text = score.ToString();
         comboF.text = maxCombo.ToString();
         gradeF.text = grade.ToString();
+    }
+
+    public void ReturnToSelector()
+    {
+        SceneManager.LoadScene("LevelSelector");
     }
 }

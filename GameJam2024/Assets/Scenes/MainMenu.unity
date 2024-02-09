@@ -3223,7 +3223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 211}
+  m_AnchoredPosition: {x: 0, y: 278}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2044164978
@@ -3246,7 +3246,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tabernanos
+  m_text: Los Tabernanos
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c58b34ed91eb2ea4e9c90c55d53a3647, type: 2}
   m_sharedMaterial: {fileID: 187038976070059728, guid: c58b34ed91eb2ea4e9c90c55d53a3647, type: 2}

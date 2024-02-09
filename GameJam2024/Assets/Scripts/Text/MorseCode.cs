@@ -9,7 +9,7 @@ public class MorseCode : MonoBehaviour
     private string _code = "";
     private char[] _codeArray;
     private int _currentLetter;
-    private Animator animator;
+    [SerializeField] private Animator animator;
     [SerializeField][Range(1, 10)] private int _numberOfLetters;
     private MorseCodeGenerator _morseGenerator;
     [SerializeField] private TMP_Text _goblinText;
@@ -27,7 +27,6 @@ public class MorseCode : MonoBehaviour
     {
         _morseGenerator = FindObjectOfType<MorseCodeGenerator>();
         _goblin = GetComponent<Goblin>();
-        animator = GetComponentInChildren<Animator>();
     }
 
     void OnEnable()
