@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (_showResults || _scoreManager.GetFillAmount() == 0f)
+            if (_showResults && goblinList.Count == 0)
                 FinishGame();
 
         }
@@ -94,12 +94,14 @@ public class GameManager : MonoBehaviour
         // TODO Show results screen
 
         UpdateHighScore();
+        _levelManager.UnlockNextLevel(_levelManager.GetCurrentLevel);
 
         Debug.Log("Score: " + _scoreManager.GetScore());
         Debug.Log("Max Combo: " + _scoreManager.GetMaxCombo());
         Debug.Log("Grade: " + _scoreManager.GetGrade());
 
-        _globalCanvas.FinishGame(_scoreManager.GetScore(), _scoreManager.GetMaxCombo(), _scoreManager.GetGrade());
+        _globalCanvas.ShowResultsScreen(_scoreManager.GetScore(), _scoreManager.GetMaxCombo(), _scoreManager.GetGrade());
+
 
         // Should go to level select screen
         //SceneManager.LoadScene("LevelSelector");

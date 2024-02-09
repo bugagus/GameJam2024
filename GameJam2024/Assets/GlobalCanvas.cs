@@ -20,7 +20,7 @@ public class GlobalCanvas : MonoBehaviour
 
     public void SetTimer(float t) => timer.text = ((int)t).ToString();
 
-    public void FinishGame(int score, int maxCombo, Grade grade)
+    public void ShowResultsScreen(int score, int maxCombo, Grade grade)
     {
         FinalScreen.SetActive(true);
         scoreF.text = score.ToString();
