@@ -58,7 +58,7 @@ public class ScoreManager : MonoBehaviour
         _maxCombo = Math.Max(_maxCombo, _currentCombo);
         AddScore();
         _globalCanvas.SetPoints(GetScore());
-        _globalCanvas.SetCombo(_currentCombo);
+        _globalCanvas.SetCombo(1 + (0.2 * _currentCombo));
     }
 
     public void AddGoblinFailed()
@@ -67,7 +67,7 @@ public class ScoreManager : MonoBehaviour
         _goblinsFailed++;
         SubtractScore();
         _globalCanvas.SetPoints(GetScore());
-        _globalCanvas.SetCombo(_currentCombo);
+        _globalCanvas.SetCombo(1 + (0.2 * _currentCombo));
     }
 
 

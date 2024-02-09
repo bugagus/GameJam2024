@@ -9,7 +9,7 @@ public class GlobalCanvas : MonoBehaviour
 
     public void SetPoints(int p) => points.text = p.ToString();
 
-    public void SetCombo(int c) => combo.text = c.ToString();
+    public void SetCombo(double c) => combo.text = c.ToString();
 
     public void SetTimer(float t) => timer.text = ((int)t).ToString();
 }
