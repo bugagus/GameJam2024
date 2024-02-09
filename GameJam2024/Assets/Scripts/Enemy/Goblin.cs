@@ -10,6 +10,7 @@ public class Goblin : MonoBehaviour
     private GameObject _gameManager;
     [SerializeField] private Transform exitPosition;
     [SerializeField] float velocity;
+    [SerializeField] private Animator _animator;
     public EnemyType enemyType;
     private GameManager gameManager;
 
@@ -71,6 +72,7 @@ public class Goblin : MonoBehaviour
     #region MOVIMIENTO
     public void Advance(Transform pos)
     {
+        _animator.SetBool("isWalking", true);
         _rb.isKinematic = false;
         _isAdvancing = true;
         _desiredPos = pos;
@@ -78,6 +80,7 @@ public class Goblin : MonoBehaviour
 
     public void Stop()
     {
+        _animator.SetBool("isWalking", false);
         _rb.isKinematic = true;
         _isAdvancing = false;
         _transform.position = new Vector3(_desiredPos.position.x, _transform.position.y, _transform.position.z);
@@ -88,6 +91,7 @@ public class Goblin : MonoBehaviour
         GetComponentInChildren<Animator>().SetTrigger("DisappearText");
         gameManager.RemoveGoblin(this);
         goblinTimer.SetGoingAway();
+        _animator.SetBool("isWalking", true);
         DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
         DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, exitPosition.position.x, 7.0f, false);});
     }

@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelMenu : MonoBehaviour
 {
     private LevelManager _levelManager;
+    [SerializeField] Button[] levelButtons;
+
+    private void Awake()
+    {
+        //int levelsCompleted = 0;
+        //for(int i = 0; i <= levelsCompleted; i++)
+        //{
+        //    levelButtons[i].interactable = true;
+        //} 
+    }
     public void LoadDay1()
     {
         //SceneManager.LoadScene("Game");
