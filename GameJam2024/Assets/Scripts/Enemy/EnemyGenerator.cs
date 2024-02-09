@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
 
-    private const int EnemiesOnScreen = 5;
+    private const int EnemiesOnScreen = 10;
+    private Level _currentLevel;
 
     [SerializeField] private GameObject _enemyPool;
 
@@ -26,6 +27,7 @@ public class EnemyGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _currentLevel = FindObjectOfType<LevelManager>().GetCurrentLevel;
         InitializeEnemyList();
     }
 
@@ -47,14 +49,27 @@ public class EnemyGenerator : MonoBehaviour
     }
 
     private EnemyType _GetRandomEnemyType() {
-        float random = Random.Range(0f, 1f);
+        float random = Random.Range(0f, 1f);;
+        switch(_currentLevel)
+        {
+            case Level.Day1:
+                random = Random.Range(0.5f, 1f);
+            break;
+            case Level.Day2:
+                random = Random.Range(0.3f, 1f);
+            break;
+            case Level.Day3:
+                random = Random.Range(0f, 1f);
+            break;
 
+        }
+        Debug.Log(random);
         foreach (KeyValuePair<EnemyType, float> entry in _enemyRareness) {
-            if (random < entry.Value) {
+            Debug.Log(entry.Value);
+            Debug.Log(entry.Key);
+            if (random > entry.Value) {
                 return entry.Key;
             }
-
-            random -= entry.Value;
         }
 
         return EnemyType.NormalGoblin;  // Runaway return, should never execute.
@@ -76,6 +91,7 @@ public class EnemyGenerator : MonoBehaviour
     // TODO Change all 'Enemy' to 'Goblin'
     public Goblin SpawnEnemy() {
         EnemyType enemyType = _GetRandomEnemyType();
+        Debug.Log(enemyType);
         int firstFreeIndex = _GetFirstDisabledEnemyObjectIndex(enemyType);
         GameObject enemy = _enemyList[enemyType][firstFreeIndex];
         Debug.Log(enemy.name);

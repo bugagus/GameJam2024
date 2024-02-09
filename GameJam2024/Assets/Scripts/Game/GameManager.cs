@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private ScoreManager _scoreManager;
     private EnemyGenerator _enemyGenerator;
     private LevelManager _levelManager;
+    private GlobalCanvas _globalCanvas;
     private LevelType _level;
     [SerializeField] private AbilityManager _abilityManager;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //GameObject.DontDestroyOnLoad(this);
+        _globalCanvas = FindObjectOfType<GlobalCanvas>();
         _scoreManager = GetComponent<ScoreManager>();
         _enemyGenerator = FindObjectOfType<EnemyGenerator>();
         _levelManager = FindObjectOfType<LevelManager>();
@@ -44,13 +46,14 @@ public class GameManager : MonoBehaviour
         if (_timerOn)
         {
             _targetTime -= Time.deltaTime;
+            _globalCanvas.SetTimer(_targetTime);
 
             if (_targetTime <= 0.0f)
                 EndTimer();
         }
         else
         {
-            if (_showResults && goblinList.Count == 0)
+            if (_showResults || _scoreManager.GetFillAmount() == 0f)
                 FinishGame();
 
         }
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     private void EndTimer()
     {
+        Debug.Log("SE ACABO EL TIMER");
         _timerOn = false;
         _showResults = true;
     }
@@ -94,8 +98,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Grade: " + _scoreManager.GetGrade());
 
         // Should go to level select screen
-        _levelManager.SetCurrentLevel(Level.Day2);
-        SceneManager.LoadScene("Day2");
+        SceneManager.LoadScene("LevelSelector");
     }
 
     public void SpawnGoblin()

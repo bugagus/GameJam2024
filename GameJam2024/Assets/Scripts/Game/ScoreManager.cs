@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private Image stars;
     [SerializeField] private float amountStars;
     [SerializeField] private float constantStars;
-
+    private GlobalCanvas _globalCanvas;
     private int _playerScore;
     private int _maxCombo;
     private int _currentCombo;
@@ -22,14 +22,18 @@ public class ScoreManager : MonoBehaviour
     private int _goblinsFailed;
     private int _wordsFailed;
 
-    public void Update()
+    void Awake()
+    {
+        _globalCanvas = FindObjectOfType<GlobalCanvas>();
+    }
+    void Update()
     {
         stars.fillAmount -= constantStars*Time.deltaTime;
     }
 
     public int GetScore() => _playerScore;
 
-    public void AddScore() => _playerScore += (int) Math.Round((1 + (0.2 * _currentCombo)) * 50);
+    public void AddScore()=> _playerScore += (int) Math.Round((1 + (0.2 * _currentCombo)) * 50);
 
     public void SubtractScore() => _playerScore = Math.Max(0, _playerScore - 50);
 
@@ -43,6 +47,9 @@ public class ScoreManager : MonoBehaviour
 
     public int GetGoblinsServed() => _goblinsServed;
 
+    public float GetFillAmount ()=> stars.fillAmount;
+
+
     public void AddGoblinServed()
     {
         stars.fillAmount += amountStars;
@@ -50,6 +57,8 @@ public class ScoreManager : MonoBehaviour
         _currentCombo++;
         _maxCombo = Math.Max(_maxCombo, _currentCombo);
         AddScore();
+        _globalCanvas.SetPoints(GetScore());
+        _globalCanvas.SetCombo(_currentCombo);
     }
 
     public void AddGoblinFailed()
@@ -57,7 +66,10 @@ public class ScoreManager : MonoBehaviour
         stars.fillAmount -= 0.75f*amountStars;
         _goblinsFailed++;
         SubtractScore();
+        _globalCanvas.SetPoints(GetScore());
+        _globalCanvas.SetCombo(_currentCombo);
     }
+
 
     public Grade GetGrade()
     {

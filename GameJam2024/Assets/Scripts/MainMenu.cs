@@ -11,10 +11,10 @@ public class MainMenu : MonoBehaviour
     {
         //SceneManager.LoadScene("Game");
         // Should go to level select screen when it's finished.
-        SceneManager.LoadScene("Day1");
+        SceneManager.LoadScene("LevelSelector");
 
-        _levelManager = FindObjectOfType<LevelManager>();
-        _levelManager.SetCurrentLevel(Level.Day1);
+        //_levelManager = FindObjectOfType<LevelManager>();
+        //_levelManager.SetCurrentLevel(Level.Day1);
     }
 
     public void closeGame()

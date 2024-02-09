@@ -9,7 +9,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class AbilityManager : MonoBehaviour
 {
-    private int _abilitiesUnlocked;
+    [SerializeField] private int _abilitiesUnlocked;
     [SerializeField] int ToFreezeGoblins, ToServeGoblins;
     [SerializeField] private float freezeTime;
     List<Action> abilities = new();
@@ -25,15 +25,12 @@ public class AbilityManager : MonoBehaviour
     }
     public void StartGame()
     {
-        _gameManager = FindObjectOfType<GameManager>();
-        _scoreManager = FindObjectOfType<ScoreManager>();
+        _gameManager = GetComponent<GameManager>();
+        _scoreManager = GetComponent<ScoreManager>();
     }
     public void UsePower(int i)
     {
-        //if(i < _abilitiesUnlocked)
-        //{
-            abilities[i].Invoke();
-        //}
+        if(i < _abilitiesUnlocked) abilities[i].Invoke();
     }
     public void UnlockPower()
     {
@@ -75,4 +72,6 @@ public class AbilityManager : MonoBehaviour
     {
         _goblinToPower++;
     }
+
+    public int GetUnlockedPowers ()=> _abilitiesUnlocked;
 }

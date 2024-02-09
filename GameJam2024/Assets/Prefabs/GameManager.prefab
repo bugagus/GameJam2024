@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3058185748725303557}
   - component: {fileID: 8226247569167996066}
   - component: {fileID: 7397342613758227737}
+  - component: {fileID: 7863674794926022238}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -71,6 +72,7 @@ MonoBehaviour:
   normalTimer: 30
   bigTimer: 40
   spawnPos: {fileID: 0}
+  _abilityManager: {fileID: 0}
 --- !u!114 &8226247569167996066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +85,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea6d7a4f79ca943ab1d0c968b6d6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stars: {fileID: 0}
+  amountStars: 0.125
+  constantStars: 0.005
 --- !u!114 &7397342613758227737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,3 +102,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeIntensity: 0.5
   shakeTiming: 0.25
+--- !u!114 &7863674794926022238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3457441712353513939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12cf2bedfa9cc44b84544fcf34b3d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilitiesUnlocked: 0
+  ToFreezeGoblins: 5
+  ToServeGoblins: 10
+  freezeTime: 5
