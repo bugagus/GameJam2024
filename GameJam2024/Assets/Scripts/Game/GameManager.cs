@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Transform[] positions;
@@ -97,8 +99,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Max Combo: " + _scoreManager.GetMaxCombo());
         Debug.Log("Grade: " + _scoreManager.GetGrade());
 
+        _globalCanvas.FinishGame();
+
         // Should go to level select screen
-        SceneManager.LoadScene("LevelSelector");
+        //SceneManager.LoadScene("LevelSelector");
     }
 
     public void SpawnGoblin()
