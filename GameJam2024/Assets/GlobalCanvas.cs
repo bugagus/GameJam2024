@@ -18,14 +18,11 @@ public class GlobalCanvas : MonoBehaviour
 
     public void SetTimer(float t) => timer.text = ((int)t).ToString();
 
-    public void FinishGame()
+    public void FinishGame(int score, int maxCombo, Grade grade)
     {
         FinalScreen.SetActive(true);
+        scoreF.text = score.ToString();
+        comboF.text = maxCombo.ToString();
+        gradeF.text = grade.ToString();
     }
-
-    public void SetPointsF(int p) => scoreF.text = p.ToString();
-
-    public void SetComboF(int c) => comboF.text = c.ToString();
-
-    public void SetGradeF(Grade g) => gradeF.text = g.ToString();
 }

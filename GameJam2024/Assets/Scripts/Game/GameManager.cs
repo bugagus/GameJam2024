@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Max Combo: " + _scoreManager.GetMaxCombo());
         Debug.Log("Grade: " + _scoreManager.GetGrade());
 
-        _globalCanvas.FinishGame();
+        _globalCanvas.FinishGame(_scoreManager.GetScore(), _scoreManager.GetMaxCombo(), _scoreManager.GetGrade());
 
         // Should go to level select screen
         //SceneManager.LoadScene("LevelSelector");
