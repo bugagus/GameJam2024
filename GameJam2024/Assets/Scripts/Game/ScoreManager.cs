@@ -73,20 +73,27 @@ public class ScoreManager : MonoBehaviour
 
     public Grade GetGrade()
     {
+        Grade grade;
+
         int totalGoblins = _goblinsServed + _goblinsFailed;
         float accuracy = _goblinsServed / totalGoblins;
 
         if (_wordsFailed == 0 && _goblinsFailed == 0)
-            return Grade.SS;
+            grade = Grade.SS;
         else if (_goblinsFailed == 0)
-            return Grade.S;
+            grade = Grade.S;
         else if (accuracy >= 0.85)
-            return Grade.A;
+            grade = Grade.A;
         else if (accuracy >= 0.70)
-            return Grade.B;
+            grade = Grade.B;
         else if (accuracy >= 0.50)
-            return Grade.C;
+            grade = Grade.C;
         else
-            return Grade.D;
+            grade = Grade.D;
+        
+        _globalCanvas.SetPointsF(GetScore());
+        _globalCanvas.SetComboF(GetMaxCombo());
+        _globalCanvas.SetGradeF(grade);
+        return grade;
     }
 }
