@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
             DOVirtual.DelayedCall(3.0f * i, () => { SpawnGoblin(); }, false);
         }
         GetComponent<CameraManager>().FindCamera();
+        FindObjectOfType<AbilityManager>().StartGame();
     }
 
     private void StartTimer()
@@ -125,7 +126,7 @@ public class GameManager : MonoBehaviour
             }
         }
         goblinList.RemoveAt(goblinList.Count - 1);
-        if (_timerOn)
+        //if (_timerOn)
             SpawnGoblin();
 
     }

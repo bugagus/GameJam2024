@@ -22,7 +22,7 @@ public class AbilityManager : MonoBehaviour
         abilities.Add(TimeStopAbility);
         abilities.Add(AutoServeAbility);
     }
-    private void StartGame()
+    public void StartGame()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _scoreManager = FindObjectOfType<ScoreManager>();
