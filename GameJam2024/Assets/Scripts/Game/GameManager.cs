@@ -59,6 +59,11 @@ public class GameManager : MonoBehaviour
                 FinishGame();
 
         }
+
+        if (_scoreManager.GetFillAmount() <= 0f)
+        {
+            GameOver();
+        }
     }
 
     public void StartGame()
@@ -105,6 +110,12 @@ public class GameManager : MonoBehaviour
 
         // Should go to level select screen
         //SceneManager.LoadScene("LevelSelector");
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("GAME OVER");
+        // Show Game Over screen
     }
 
     public void SpawnGoblin()
