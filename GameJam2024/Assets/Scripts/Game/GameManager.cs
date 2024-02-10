@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float bigTimer;
     private float _targetTime;
     private bool _timerOn;
-    private bool _showResults;
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
     private ScoreManager _scoreManager;
@@ -51,15 +50,8 @@ public class GameManager : MonoBehaviour
             _globalCanvas.SetTimer(_targetTime);
 
             if (_targetTime <= 0.0f)
-                EndTimer();
-        }
-        else
-        {
-            if (_showResults && goblinList.Count == 0)
                 FinishGame();
-
         }
-
         if (_scoreManager.GetFillAmount() <= 0f)
         {
             GameOver();
@@ -85,17 +77,9 @@ public class GameManager : MonoBehaviour
         _timerOn = true;
     }
 
-    private void EndTimer()
-    {
-        Debug.Log("SE ACABO EL TIMER");
-        _timerOn = false;
-        _showResults = true;
-    }
 
     private void FinishGame()
     {
-        _showResults = false;
-
         // TODO Show results screen
 
         UpdateHighScore();
