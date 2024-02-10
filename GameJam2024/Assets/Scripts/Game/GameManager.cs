@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private EnemyGenerator _enemyGenerator;
     private LevelManager _levelManager;
     private GlobalCanvas _globalCanvas;
+    private SoundManager _soundManager;
     private LevelType _level;
     [SerializeField] private AbilityManager _abilityManager;
 
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         _scoreManager = GetComponent<ScoreManager>();
         _enemyGenerator = FindObjectOfType<EnemyGenerator>();
         _levelManager = FindObjectOfType<LevelManager>();
+        _soundManager = FindObjectOfType<SoundManager>();
 
         _level = _levelManager.GetLevelDefinitions[_levelManager.GetCurrentLevel];
 
@@ -191,10 +193,13 @@ public class GameManager : MonoBehaviour
     {
         _scoreManager.ResetCombo();
         _scoreManager.AddWordsFailed();
+        PlaySound(Sound.failedWord);
     }
 
     private void UpdateHighScore() => _scoreManager.UpdateHighScore(_level.level);
 
     public List<Goblin> GetGoblinList() => goblinList;
+
+    public void PlaySound(Sound sound) => _soundManager.PlayAudioClip(sound);
 
 }
