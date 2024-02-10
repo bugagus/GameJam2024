@@ -99,6 +99,7 @@ public class Goblin : MonoBehaviour
     public void HasBeenServed()
     {
         _gameManager.GetComponent<ScoreManager>().AddGoblinServed();
+        gameManager.PlaySound(Sound.correctWord);
         abilityManager.AddGoblin();
         abilityManager.CheckAbility();    // Desactivado hasta que no de NullReferenceException
         GoAway();
