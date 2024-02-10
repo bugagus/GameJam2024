@@ -2387,21 +2387,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 361924172560871458, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
-      propertyPath: m_Name
-      value: rightHud
-      objectReference: {fileID: 0}
-    - target: {fileID: 4609752425044750752, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
-      propertyPath: m_Name
-      value: middleHud
-      objectReference: {fileID: 0}
     - target: {fileID: 4883058030231982605, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6116522315953459634, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
-      propertyPath: m_Name
-      value: leftHud
       objectReference: {fileID: 0}
     - target: {fileID: 7159160254755545091, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_Name
@@ -2492,6 +2480,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+--- !u!114 &417321425797501940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3396668372622290880, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+  m_PrefabInstance: {fileID: 417321425797501939}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &417321425797501941 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2577903777744956188, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+  m_PrefabInstance: {fileID: 417321425797501939}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2560452912920068281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2596,6 +2606,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7863674794926022238, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
+      propertyPath: toServeText
+      value: 
+      objectReference: {fileID: 417321425797501940}
+    - target: {fileID: 7863674794926022238, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
+      propertyPath: toFreezeText
+      value: 
+      objectReference: {fileID: 417321425797501941}
     - target: {fileID: 8226247569167996066, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
       propertyPath: stars
       value: 

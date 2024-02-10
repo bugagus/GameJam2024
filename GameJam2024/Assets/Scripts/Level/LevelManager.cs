@@ -24,6 +24,14 @@ public class LevelManager : MonoBehaviour
         {Level.InfiniteMode, 0},
     };
 
+    private Dictionary<Level, Grade> _levelGradesScores = new()
+    {
+        {Level.Day1, Grade.D},
+        {Level.Day2, Grade.D},
+        {Level.Day3, Grade.D},
+        {Level.InfiniteMode, Grade.D},
+    };
+
     void Start()
     {
         GameObject.DontDestroyOnLoad(this);
@@ -52,6 +60,8 @@ public class LevelManager : MonoBehaviour
     } 
 
     public Dictionary<Level, LevelType> GetLevelDefinitions => _levelDefinitions;
+    public Dictionary<Level, bool> GetUnlockedLevels => _unlockedLevel;
+    public Dictionary<Level, int> GetLevelScores => _levelHighScores;
     
     public void UpdateHighScore(Level level, int score) => _levelHighScores[level] = Math.Max(_levelHighScores[level], score); 
 }
