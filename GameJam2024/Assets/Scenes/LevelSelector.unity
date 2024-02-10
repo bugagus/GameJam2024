@@ -221,7 +221,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1383135971}
         m_TargetAssemblyTypeName: LevelMenu, Assembly-CSharp
-        m_MethodName: LoadDay1
+        m_MethodName: LoadInfiniteMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
