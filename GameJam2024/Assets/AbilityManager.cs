@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO.Compression;
 using DG.Tweening;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -12,6 +13,8 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private int _abilitiesUnlocked;
     [SerializeField] int ToFreezeGoblins, ToServeGoblins;
     [SerializeField] private float freezeTime;
+    [SerializeField] private TMP_Text toFreezeText,toServeText;
+    private int goblinToFreeze, goblinToServe; 
     List<Action> abilities = new();
     public static bool timeStop;
     private GameManager _gameManager;
@@ -73,6 +76,12 @@ public class AbilityManager : MonoBehaviour
     public void AddGoblin()
     {
         _goblinToPower++;
+
+        goblinToFreeze = ToFreezeGoblins-_goblinToPower%ToFreezeGoblins;
+        goblinToServe = ToServeGoblins-_goblinToPower%ToServeGoblins;
+
+        toFreezeText.text = goblinToFreeze.ToString();
+        toServeText.text = goblinToServe.ToString();
     }
 
     public int GetUnlockedPowers ()=> _abilitiesUnlocked;
