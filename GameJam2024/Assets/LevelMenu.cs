@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class LevelMenu : MonoBehaviour
 {
     private LevelManager _levelManager;
+    private SoundManager _soundManager;
     private RectTransform _diasTransform;
     private RectTransform _previousButtonTransform;
     private RectTransform _nextButtonTransform;
@@ -20,6 +21,7 @@ public class LevelMenu : MonoBehaviour
 
     private void Awake()
     {
+        _soundManager = FindObjectOfType<SoundManager>();
         _currentPos = 0;
         _levelManager = FindObjectOfType<LevelManager>();
         _diasTransform = GameObject.Find("Dias").GetComponent<RectTransform>();
@@ -95,5 +97,10 @@ public class LevelMenu : MonoBehaviour
             _currentPos++;
             _previousButtonTransform.DOShakePosition(0.5f, 10);
         }
+    }
+
+    public void PlayButtonSound()
+    {
+        _soundManager.PlayAudioClip(Sound.buttonClick);
     }
 }
