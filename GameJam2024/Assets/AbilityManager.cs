@@ -39,6 +39,7 @@ public class AbilityManager : MonoBehaviour
 
     private void TimeStopAbility()
     {
+        _gameManager.PlaySound(Sound.stopTime);
         GoblinTimer[] _goblinsTimers = FindObjectsOfType<GoblinTimer>();
         foreach(GoblinTimer _gt in _goblinsTimers)
         {
@@ -53,6 +54,7 @@ public class AbilityManager : MonoBehaviour
     {
         List<Goblin> goblinListAux = FindObjectOfType<GameManager>().GetGoblinList();
         int points = goblinListAux.Count;
+        _gameManager.PlaySound(Sound.serveAll);
         _gameManager.AutoServe();
         AddGoblin();
         for(int i = 0; i < 5 ; i++) _scoreManager.AddGoblinServed();
