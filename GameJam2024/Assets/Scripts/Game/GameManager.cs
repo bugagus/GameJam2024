@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
     {
         _showResults = false;
 
-        // TODO Show results screen
+        _soundManager.PlayAudioClip(Sound.levelCompleted);
 
         UpdateHighScore();
         _levelManager.UnlockNextLevel(_levelManager.GetCurrentLevel);
@@ -108,14 +108,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Grade: " + _scoreManager.GetGrade());
 
         _globalCanvas.ShowResultsScreen(_scoreManager.GetScore(), _scoreManager.GetMaxCombo(), _scoreManager.GetGrade());
-
-
-        // Should go to level select screen
-        //SceneManager.LoadScene("LevelSelector");
     }
 
     private void GameOver()
     {
+        _soundManager.PlayAudioClip(Sound.gameOver);
         Debug.Log("GAME OVER");
         // Show Game Over screen
     }
