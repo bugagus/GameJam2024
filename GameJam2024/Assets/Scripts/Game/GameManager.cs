@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private EnemyGenerator _enemyGenerator;
     private LevelManager _levelManager;
     private GlobalCanvas _globalCanvas;
+    private SoundManager _soundManager;
     private LevelType _level;
     [SerializeField] private AbilityManager _abilityManager;
 
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         _scoreManager = GetComponent<ScoreManager>();
         _enemyGenerator = FindObjectOfType<EnemyGenerator>();
         _levelManager = FindObjectOfType<LevelManager>();
+        _soundManager = FindObjectOfType<SoundManager>();
 
         _level = _levelManager.GetLevelDefinitions[_levelManager.GetCurrentLevel];
 
@@ -82,9 +84,9 @@ public class GameManager : MonoBehaviour
 
     private void FinishGame()
     {
-        // TODO Show results screen
         Time.timeScale = 0f;
         _gameFinished = true;
+        _soundManager.PlayAudioClip(Sound.levelCompleted);
         UpdateHighScore();
         _levelManager.UnlockNextLevel(_levelManager.GetCurrentLevel);
 
@@ -93,14 +95,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Grade: " + _scoreManager.GetGrade());
 
         _globalCanvas.ShowResultsScreen(_scoreManager.GetScore(), _scoreManager.GetMaxCombo(), _scoreManager.GetGrade());
-
-
-        // Should go to level select screen
-        //SceneManager.LoadScene("LevelSelector");
     }
 
     private void GameOver()
     {
+        _soundManager.PlayAudioClip(Sound.gameOver);
         Debug.Log("GAME OVER");
         // Show Game Over screen
     }
@@ -178,10 +177,13 @@ public class GameManager : MonoBehaviour
     {
         _scoreManager.ResetCombo();
         _scoreManager.AddWordsFailed();
+        PlaySound(Sound.failedWord);
     }
 
     private void UpdateHighScore() => _scoreManager.UpdateHighScore(_level.level);
 
     public List<Goblin> GetGoblinList() => goblinList;
+
+    public void PlaySound(Sound sound) => _soundManager.PlayAudioClip(sound);
 
 }
