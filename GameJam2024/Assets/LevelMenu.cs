@@ -13,6 +13,7 @@ public class LevelMenu : MonoBehaviour
     private RectTransform _previousButtonTransform;
     private RectTransform _nextButtonTransform;
     [SerializeField] private TMP_Text _score;
+    [SerializeField] private Image[] levelButtons;
 
     private int _currentPos;
 
@@ -25,6 +26,28 @@ public class LevelMenu : MonoBehaviour
         _diasTransform = GameObject.Find("Dias").GetComponent<RectTransform>();
         _previousButtonTransform = GameObject.Find("PreviousLevelButton").GetComponent<RectTransform>();
         _nextButtonTransform = GameObject.Find("NextLevelButton").GetComponent<RectTransform>();
+
+        if (!_levelManager.GetUnlockedLevels[Level.Day2])
+        {
+            var tempColor = levelButtons[1].color;
+            tempColor.a = 0.5f;
+            levelButtons[1].color = tempColor;
+        }
+
+        if (!_levelManager.GetUnlockedLevels[Level.Day3])
+        {
+            var tempColor = levelButtons[2].color;
+            tempColor.a = 0.5f;
+            levelButtons[2].color = tempColor;
+        }
+
+        if (!_levelManager.GetUnlockedLevels[Level.InfiniteMode])
+        {
+            var tempColor = levelButtons[3].color;
+            tempColor.a = 0.5f;
+            levelButtons[3].color = tempColor;
+        }
+        
     }
 
     public void LoadDay1()

@@ -12,8 +12,7 @@ public class GlobalCanvas : MonoBehaviour
     [SerializeField] private TMP_Text comboF;
     [SerializeField] private TMP_Text gradeF;
     [SerializeField] private GameObject FinalScreen;
-    private ScoreManager _scoreManager;
-
+    
     public void SetPoints(int p) => points.text = p.ToString();
 
     public void SetCombo(double c) => combo.text = c.ToString();
@@ -31,5 +30,6 @@ public class GlobalCanvas : MonoBehaviour
     public void ReturnToSelector()
     {
         SceneManager.LoadScene("LevelSelector");
+        Time.timeScale = 1f;
     }
 }

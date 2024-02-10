@@ -48,7 +48,7 @@ public class AbilityManager : MonoBehaviour
             _gt.SetTimeStop(true);
             DOVirtual.DelayedCall(freezeTime, ()=>{_gt.SetTimeStop(false);}, false);
         }
-        FindObjectOfType<ClockAnimation>().StartAnimation();
+        FindObjectOfType<AbilityAnimation>().StartAnimationClock();
 
     }
 
@@ -59,7 +59,7 @@ public class AbilityManager : MonoBehaviour
         _gameManager.AutoServe();
         AddGoblin();
         for(int i = 0; i < 5 ; i++) _scoreManager.AddGoblinServed();
-
+        FindObjectOfType<AbilityAnimation>().StartAnimationServe();
 
     }
 

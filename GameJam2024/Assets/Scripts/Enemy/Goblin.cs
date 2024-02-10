@@ -20,12 +20,6 @@ public class Goblin : MonoBehaviour
     private bool _isAdvancing;
     private Rigidbody _rb;
     private Transform _transform;
-
-    //private readonly Dictionary<EnemyType, float> _goblinTimers = new() {
-    //    {EnemyType.NormalGoblin, 30f},
-    //    {EnemyType.SmallGoblin,  20f},
-    //    {EnemyType.BigGoblin,    40f}
-    //};
     private const float difficultyFactor = 0.2f;
 
     private void Awake()
@@ -92,8 +86,8 @@ public class Goblin : MonoBehaviour
         gameManager.RemoveGoblin(this);
         goblinTimer.SetGoingAway();
         _animator.SetBool("isWalking", true);
-        DOTweenModulePhysics.DOMoveZ(_rb, 2.0f, 2.0f, false);
-        DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, exitPosition.position.x, 7.0f, false);});
+        DOTweenModulePhysics.DOMoveZ(_rb, exitPosition.position.z - transform.position.z, 1.0f, false);
+        DOVirtual.DelayedCall(1.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, exitPosition.position.x, 7.0f, false);});
     }
 
     public void HasBeenServed()

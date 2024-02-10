@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float normalTimer;
     [SerializeField] private float bigTimer;
     private float _targetTime;
+    private bool _gameFinished;
     private bool _timerOn;
     public Transform spawnPos;
     private List<Goblin> goblinList = new();
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _gameFinished = false;
         //GameObject.DontDestroyOnLoad(this);
         _globalCanvas = FindObjectOfType<GlobalCanvas>();
         _scoreManager = GetComponent<ScoreManager>();
@@ -44,7 +46,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Update() {
-        if (_timerOn)
+        if (_timerOn && !_gameFinished)
         {
             _targetTime -= Time.deltaTime;
             _globalCanvas.SetTimer(_targetTime);
@@ -81,7 +83,8 @@ public class GameManager : MonoBehaviour
     private void FinishGame()
     {
         // TODO Show results screen
-
+        Time.timeScale = 0f;
+        _gameFinished = true;
         UpdateHighScore();
         _levelManager.UnlockNextLevel(_levelManager.GetCurrentLevel);
 

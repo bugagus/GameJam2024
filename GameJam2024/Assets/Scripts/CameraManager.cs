@@ -25,7 +25,7 @@ public class CameraManager : MonoBehaviour
 
     private void ProcessShake()
     {
-        _vcPerlin.m_AmplitudeGain = shakeIntensity;
+        _vcPerlin.m_AmplitudeGain = shakeIntensity * Time.timeScale;
         DOVirtual.DelayedCall(shakeTiming, ()=> {_vcPerlin.m_AmplitudeGain = 0;});
     }
 }
