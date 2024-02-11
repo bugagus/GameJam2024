@@ -26,9 +26,9 @@ public class LevelManager : MonoBehaviour
 
     private Dictionary<Level, Grade> _levelGradesScores = new()
     {
-        {Level.Day1, Grade.S},
-        {Level.Day2, Grade.C},
-        {Level.Day3, Grade.D},
+        {Level.Day1, Grade.NOGRADE},
+        {Level.Day2, Grade.NOGRADE},
+        {Level.Day3, Grade.NOGRADE},
         {Level.InfiniteMode, Grade.NOGRADE},
     };
 
