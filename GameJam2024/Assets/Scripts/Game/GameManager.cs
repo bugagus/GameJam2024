@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private SoundManager _soundManager;
     private LevelType _level;
     [SerializeField] private AbilityManager _abilityManager;
+    [SerializeField] private TextMeshProUGUI gradeText;
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +100,8 @@ public class GameManager : MonoBehaviour
 
         _globalCanvas.ShowResultsScreen(_scoreManager.GetScore(), _scoreManager.GetMaxCombo(), _scoreManager.GetGrade());
         _levelManager.GetLevelGrades[_levelManager.GetCurrentLevel] = _scoreManager.GetGrade();
+        gradeText.text = SetGrade(_levelManager.GetCurrentLevel, gradeText);
+        gradeText.transform.DOLocalRotate(new Vector3(360, 0, 0), 0.75f, RotateMode.FastBeyond360);
     }
 
     private void GameOver()
@@ -193,5 +196,41 @@ public class GameManager : MonoBehaviour
     public List<Goblin> GetGoblinList() => goblinList;
 
     public void PlaySound(Sound sound) => _soundManager.PlayAudioClip(sound);
+
+    private string SetGrade(Level level, TMP_Text tmp)
+    {
+        string result = "";
+        switch (_levelManager.GetLevelGrades[level])
+        {
+            case Grade.SS:
+                result = "SS";
+                tmp.color = new Color32(237, 237, 23, 255);
+                break;
+            case Grade.S:
+                result = "S";
+                tmp.color = new Color32(255, 97, 0, 255);
+                break;
+            case Grade.A:
+                result = "A";
+                tmp.color = new Color32(85, 215, 5, 255);
+                break;
+            case Grade.B:
+                result = "B";
+                tmp.color = new Color32(17, 70, 223, 255);
+                break;
+            case Grade.C:
+                result = "C";
+                tmp.color = new Color32(94, 18, 198, 255);
+                break;
+            case Grade.D:
+                result = "D";
+                tmp.color = new Color32(249, 49, 6, 255);
+                break;
+            case Grade.NOGRADE:
+                result = "";
+                break;
+        }
+        return result;
+    }
 
 }

@@ -13,13 +13,18 @@ public class WriteText : MonoBehaviour
     [SerializeField] string[] texts;
     private int textNumber;
     public bool writing;
-    public float timeBetweenLetters = 0.09f;
+    public float timeBetweenLetters = 0.5f;
     public int timeToEraseText = 4;
 
     private void Start()
     {
         textNumber = 0;
         DOVirtual.DelayedCall(2.0f, ()=>{StartToWrite(texts[0]);}, false);
+        DOVirtual.DelayedCall(7.7f, ()=>{StartToWrite(texts[1]);}, false);
+        DOVirtual.DelayedCall(17.50f, ()=>{StartToWrite(texts[2]);}, false);
+        DOVirtual.DelayedCall(34.50f, ()=>{StartToWrite(texts[3]);}, false);
+        DOVirtual.DelayedCall(45.50f, ()=>{StartToWrite(texts[4]);}, false);
+        DOVirtual.DelayedCall(50.50f, ()=>{SceneManager.LoadScene("LevelSelector");}, false);
     }
 
     public void StartToWrite(string text)
@@ -38,17 +43,11 @@ public class WriteText : MonoBehaviour
             foreach (char letter in text)
             {
                 toWriteText.text = toWriteText.text + letter;
-                yield return new WaitForSeconds(timeBetweenLetters * Time.timeScale);
+                yield return new WaitForSeconds(timeBetweenLetters * Time.deltaTime);
             }
 
-            yield return new WaitForSecondsRealtime(timeToEraseText);
-            toWriteText.text = "";
-
-            TextPanel.SetActive(false);
+            yield return new WaitForSecondsRealtime(timeToEraseText * Time.deltaTime);
             writing = false;
-            textNumber++;
-            if(textNumber == texts.Length) SceneManager.LoadScene("LevelSelector");
-            StartToWrite(texts[textNumber]);
         }
         yield return null;
     }

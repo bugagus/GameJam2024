@@ -529,6 +529,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e16758490190c4aad4c229c423ec23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &520689184
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 170486, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_Name
+      value: OrangeCursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 487412, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487412, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487412, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487412, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 487412, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487412, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487412, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487412, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487412, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487412, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 54c60d20bd62ebf458556c57c91dccbd, type: 3}
 --- !u!1 &815942658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,10 +1135,10 @@ MonoBehaviour:
     that will mark whether you are going to write a line or a dot.
   - Each goblin that leaves without being served penalizes and thus take away points
     and life (in the form of stars). Be careful not to run out of stars!
-  - LETS STARTS COOKING!
+  - LETS START COOKING!
   writing: 0
-  timeBetweenLetters: 0.05
-  timeToEraseText: 3
+  timeBetweenLetters: 20
+  timeToEraseText: 0
 --- !u!114 &1823938712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,3 +1254,4 @@ SceneRoots:
   - {fileID: 1823938710}
   - {fileID: 961651429}
   - {fileID: 1706594582}
+  - {fileID: 520689184}

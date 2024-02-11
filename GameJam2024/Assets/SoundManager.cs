@@ -45,6 +45,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayAudioClip(Sound sound)
     {
+        if(Time.timeScale==0) return;
         _audioSource.pitch = 1;
         float random = Random.Range(0f, 0.03f);
         _audioSource.pitch += random;

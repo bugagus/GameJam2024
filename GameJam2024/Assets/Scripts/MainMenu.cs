@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
+        Time.timeScale = 1f;
         _soundManager = FindObjectOfType<SoundManager>();
     }
 
