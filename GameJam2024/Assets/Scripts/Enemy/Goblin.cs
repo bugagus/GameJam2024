@@ -40,6 +40,7 @@ public class Goblin : MonoBehaviour
 
     private void OnEnable()
     {
+        transform.rotation = Quaternion.Euler(10, 0, 0);
         _isAdvancing = false;
         transform.position = gameManager.spawnPos.position;
         SetTimer();
@@ -82,12 +83,12 @@ public class Goblin : MonoBehaviour
 
     public void GoAway()
     {
-        GetComponentInChildren<Animator>().SetTrigger("DisappearText");
         gameManager.RemoveGoblin(this);
         goblinTimer.SetGoingAway();
         _animator.SetBool("isWalking", true);
         DOTweenModulePhysics.DOMoveZ(_rb, exitPosition.position.z - transform.position.z, 1.0f, false);
-        DOVirtual.DelayedCall(1.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, exitPosition.position.x, 7.0f, false);});
+        DOVirtual.DelayedCall(1.0f, ()=> {DOTweenModulePhysics.DORotate(_rb, new Vector3(0, 180, 0), 1.0f);});
+        DOVirtual.DelayedCall(2.0f, ()=> { DOTweenModulePhysics.DOMoveX(_rb, exitPosition.position.x, 7.0f, false);});
     }
 
     public void HasBeenServed()
