@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1074,8 +1074,8 @@ MonoBehaviour:
   - You have to attend to different goblins, whose patience, marked by a green circle
     next to them, will determine if they leave before being attended to.
   - To attend them you will have to enter the code shown in their text boxes with
-    lines and dots. You will have a bar in the lower right corner that will mark
-    whether you are going to write a line or a dot.
+    lines and dots by pressing "space". You will have a bar in the lower right corner
+    that will mark whether you are going to write a line or a dot.
   - Each goblin that leaves without being served penalizes and thus take away points
     and life (in the form of stars). Be careful not to run out of stars!
   - LETS STARTS COOKING!
