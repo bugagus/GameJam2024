@@ -83,7 +83,6 @@ public class Goblin : MonoBehaviour
 
     public void GoAway()
     {
-        GetComponentInChildren<Animator>().SetTrigger("DisappearText");
         gameManager.RemoveGoblin(this);
         goblinTimer.SetGoingAway();
         _animator.SetBool("isWalking", true);
