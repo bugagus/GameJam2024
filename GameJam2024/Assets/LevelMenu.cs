@@ -32,6 +32,7 @@ public class LevelMenu : MonoBehaviour
 
     private void Awake()
     {
+        FindObjectOfType<MusicPlayer>().PlayMusicOutGame();
         _soundManager = FindObjectOfType<SoundManager>();
         _currentPos = 0;
         _levelManager = FindObjectOfType<LevelManager>();
