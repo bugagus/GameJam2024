@@ -16,4 +16,10 @@ public class AlwaysSound : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
+
+    public void PlayMusic()
+    {
+        GetComponent<AudioSource>().Play();
+    }
+
 }

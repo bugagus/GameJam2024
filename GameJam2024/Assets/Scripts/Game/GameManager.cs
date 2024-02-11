@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<AlwaysSound>().PlayMusic();
         _gameFinished = false;
         //GameObject.DontDestroyOnLoad(this);
         _globalCanvas = FindObjectOfType<GlobalCanvas>();
