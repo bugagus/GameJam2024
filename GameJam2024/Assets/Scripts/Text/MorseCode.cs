@@ -40,6 +40,7 @@ public class MorseCode : MonoBehaviour
     public char GetCurrentLetter()
     {
         // La primera letra no se debe pintar al iniciar por lo que la primera letra empieza en -1
+        if(_currentLetter + 1 >= _codeArray.Length) return _codeArray[_codeArray.Length - 1];
         return _codeArray[_currentLetter + 1];
     }
 
