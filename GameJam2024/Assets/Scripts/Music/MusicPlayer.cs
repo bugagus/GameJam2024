@@ -22,14 +22,14 @@ public class MusicPlayer : MonoBehaviour
 
     public void PlayMusicGame()
     {
-        audioSource.volume = 0.06f;
+        audioSource.volume = 0.15f;
         GetComponent<AudioSource>().clip = musics[1];
         GetComponent<AudioSource>().Play();
     }
 
     public void PlayMusicOutGame()
     {
-        audioSource.volume = 0.1f;
+        audioSource.volume = 0.5f;
         GetComponent<AudioSource>().clip = musics[0];
         GetComponent<AudioSource>().Play();
     }
