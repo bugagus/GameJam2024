@@ -1845,6 +1845,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 786
       objectReference: {fileID: 0}
+    - target: {fileID: 1651877045571051122, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 855.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992656805828767056, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_margin.z
+      value: 143.84656
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992656805828767056, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4112077180932029563, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1852,6 +1864,10 @@ PrefabInstance:
     - target: {fileID: 4883058030231982605, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921714462103156239, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_text
+      value: 'Time left:'
       objectReference: {fileID: 0}
     - target: {fileID: 5531374389773824427, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_text
@@ -1873,6 +1889,10 @@ PrefabInstance:
       propertyPath: GameOverScreen
       value: 
       objectReference: {fileID: 417321425797501943}
+    - target: {fileID: 7643628613055794477, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 980.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7738016756733402537, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -1.8
@@ -2043,6 +2063,10 @@ PrefabInstance:
       propertyPath: FinalScreen
       value: 
       objectReference: {fileID: 879340068}
+    - target: {fileID: 3058185748725303557, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
+      propertyPath: normalTimer
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 3058185748725303557, guid: 2c603510f57588d48872e59475a2e27a, type: 3}
       propertyPath: _bigTextColorScript
       value: 
