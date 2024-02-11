@@ -26,10 +26,10 @@ public class LevelManager : MonoBehaviour
 
     private Dictionary<Level, Grade> _levelGradesScores = new()
     {
-        {Level.Day1, Grade.D},
-        {Level.Day2, Grade.D},
+        {Level.Day1, Grade.S},
+        {Level.Day2, Grade.C},
         {Level.Day3, Grade.D},
-        {Level.InfiniteMode, Grade.D},
+        {Level.InfiniteMode, Grade.NOGRADE},
     };
 
     void Start()
@@ -62,6 +62,7 @@ public class LevelManager : MonoBehaviour
     public Dictionary<Level, LevelType> GetLevelDefinitions => _levelDefinitions;
     public Dictionary<Level, bool> GetUnlockedLevels => _unlockedLevel;
     public Dictionary<Level, int> GetLevelScores => _levelHighScores;
+    public Dictionary<Level, Grade> GetLevelGrades => _levelGradesScores;
     
     public void UpdateHighScore(Level level, int score) => _levelHighScores[level] = Math.Max(_levelHighScores[level], score); 
 }

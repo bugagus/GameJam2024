@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum Grade {
-    SS, S, A, B, C, D
+    SS, S, A, B, C, D, NOGRADE
 }
 
 public class ScoreManager : MonoBehaviour
