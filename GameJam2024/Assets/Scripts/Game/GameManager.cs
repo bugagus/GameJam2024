@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        Time.timeScale = 1f;
         if (!_level.infinite)
             StartTimer();
 
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        Time.timeScale = 0f;
         _soundManager.PlayAudioClip(Sound.gameOver);
         Debug.Log("GAME OVER");
         _globalCanvas.ShowGameOver(_scoreManager.GetScore(), _scoreManager.GetMaxCombo(), _scoreManager.GetGrade());
