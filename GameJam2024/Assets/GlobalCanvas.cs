@@ -11,7 +11,7 @@ public class GlobalCanvas : MonoBehaviour
     [SerializeField] private TMP_Text scoreF;
     [SerializeField] private TMP_Text comboF;
     [SerializeField] private TMP_Text gradeF;
-    [SerializeField] private GameObject FinalScreen;
+    [SerializeField] private GameObject FinalScreen, GameOverScreen;
     
     public void SetPoints(int p) => points.text = p.ToString();
 
@@ -22,6 +22,14 @@ public class GlobalCanvas : MonoBehaviour
     public void ShowResultsScreen(int score, int maxCombo, Grade grade)
     {
         FinalScreen.SetActive(true);
+        scoreF.text = score.ToString();
+        comboF.text = maxCombo.ToString();
+        gradeF.text = grade.ToString();
+    }
+
+    public void ShowGameOver(int score, int maxCombo, Grade grade)
+    {
+        GameOverScreen.SetActive(true);
         scoreF.text = score.ToString();
         comboF.text = maxCombo.ToString();
         gradeF.text = grade.ToString();

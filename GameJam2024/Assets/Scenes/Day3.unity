@@ -2401,6 +2401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlobalCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7232090197728417712, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: GameOverScreen
+      value: 
+      objectReference: {fileID: 417321425797501943}
     - target: {fileID: 8298458892670015416, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2520,6 +2524,11 @@ MonoBehaviour:
 --- !u!224 &417321425797501942 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5351985474659184339, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+  m_PrefabInstance: {fileID: 417321425797501939}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &417321425797501943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 454906117101985586, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
   m_PrefabInstance: {fileID: 417321425797501939}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2560452912920068281

@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
     {
         _soundManager.PlayAudioClip(Sound.gameOver);
         Debug.Log("GAME OVER");
-        // Show Game Over screen
+        _globalCanvas.ShowGameOver(_scoreManager.GetScore(), _scoreManager.GetMaxCombo(), _scoreManager.GetGrade());
     }
 
     public void SpawnGoblin()
