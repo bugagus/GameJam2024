@@ -12,6 +12,7 @@ public class Goblin : MonoBehaviour
     [SerializeField] float velocity;
     [SerializeField] private Animator _animator;
     public EnemyType enemyType;
+    [SerializeField] GameObject[] comidas;
     private GameManager gameManager;
 
     private AbilityManager abilityManager;
@@ -40,6 +41,7 @@ public class Goblin : MonoBehaviour
 
     private void OnEnable()
     {
+        foreach(GameObject a in comidas) a.SetActive(false);
         transform.rotation = Quaternion.Euler(10, 0, 0);
         _isAdvancing = false;
         transform.position = gameManager.spawnPos.position;
@@ -93,6 +95,8 @@ public class Goblin : MonoBehaviour
 
     public void HasBeenServed()
     {
+        int random = (int) Mathf.Round(UnityEngine.Random.Range(0, 3));
+        comidas[random].SetActive(true);
         _gameManager.GetComponent<ScoreManager>().AddGoblinServed();
         gameManager.PlaySound(Sound.correctWord);
         abilityManager.AddGoblin();

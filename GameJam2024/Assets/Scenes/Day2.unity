@@ -2023,6 +2023,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1651877045571051122, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 748.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992656805828767056, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_margin.z
+      value: 142.8512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992656805828767056, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4112077180932029563, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2030,6 +2042,14 @@ PrefabInstance:
     - target: {fileID: 4883058030231982605, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921714462103156239, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_text
+      value: 'Time left:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921714462103156239, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7159160254755545091, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_Name
