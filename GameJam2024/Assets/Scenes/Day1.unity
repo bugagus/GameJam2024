@@ -1882,10 +1882,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7232090197728417712, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
-      propertyPath: gradeF
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232090197728417712, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: GameOverScreen
       value: 
       objectReference: {fileID: 417321425797501943}

@@ -28,7 +28,6 @@ public class SoundManager : MonoBehaviour
         GameObject.DontDestroyOnLoad(this);
         _audioSource = GetComponent<AudioSource>();
         InitializeSoundList();
-        PlayAudioClip(Sound.failedWord);
     }
     private void InitializeSoundList()
     {
