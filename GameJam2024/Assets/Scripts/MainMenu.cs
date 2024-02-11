@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
 
     public void gameScene()
     {
-        SceneManager.LoadScene("LevelSelector");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void PlayButtonSound()

@@ -24,6 +24,7 @@ public class LevelMenu : MonoBehaviour
     {
         _soundManager = FindObjectOfType<SoundManager>();
         _currentPos = 0;
+        //_score.text = _levelManager.GetLevelScores[(Level)_currentPos].ToString();
         _levelManager = FindObjectOfType<LevelManager>();
         _diasTransform = GameObject.Find("Dias").GetComponent<RectTransform>();
         _previousButtonTransform = GameObject.Find("PreviousLevelButton").GetComponent<RectTransform>();
