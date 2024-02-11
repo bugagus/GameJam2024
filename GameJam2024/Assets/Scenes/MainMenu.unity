@@ -2389,13 +2389,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae8712874ebcdb3489421bd7a1c7bfe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _correctWord: {fileID: 0}
-  _failedWord: {fileID: 0}
-  _buttonClick: {fileID: 0}
-  _levelCompleted: {fileID: 0}
-  _gameOver: {fileID: 0}
-  _stopTime: {fileID: 0}
-  _serveAll: {fileID: 0}
+  _correctWord: {fileID: 8300000, guid: add8853c3e1c4004eb42e7cce1746e31, type: 3}
+  _failedWord: {fileID: 8300000, guid: b798b482a08c8ad4aadb46cb88f9439e, type: 3}
+  _buttonClick: {fileID: 8300000, guid: d963fb1dddd036e4b8b25d7360f9a9f6, type: 3}
+  _levelCompleted: {fileID: 8300000, guid: d963fb1dddd036e4b8b25d7360f9a9f6, type: 3}
+  _gameOver: {fileID: 8300000, guid: 7cc031d33dd3e464298af967289e7896, type: 3}
+  _stopTime: {fileID: 8300000, guid: a946be933f40bbd42bb53ec4bc339765, type: 3}
+  _serveAll: {fileID: 8300000, guid: 6bfeb23f8444b9b469fa9024952c8d41, type: 3}
 --- !u!4 &1164244356
 Transform:
   m_ObjectHideFlags: 0
@@ -2423,7 +2423,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 18d19fd901dedcf45a095ac852db7575, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.518
   m_Pitch: 1
   Loop: 0
   Mute: 0
