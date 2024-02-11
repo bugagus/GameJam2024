@@ -4214,7 +4214,7 @@ MonoBehaviour:
   timer: {fileID: 3992656805828767056}
   scoreF: {fileID: 5614954177460557532}
   comboF: {fileID: 5942464600156279776}
-  gradeF: {fileID: 0}
+  gradeF: {fileID: 1793825250497787948}
   FinalScreen: {fileID: 4112077180932029563}
   GameOverScreen: {fileID: 454906117101985586}
 --- !u!1 &7290079254455140522

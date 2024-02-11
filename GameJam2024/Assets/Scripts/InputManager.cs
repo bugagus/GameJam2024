@@ -10,11 +10,13 @@ public class InputManager : MonoBehaviour
     private GameManager _gameManager;
     private float lastStartTime;
     private float lastEndTime;
+    private SoundManager _soundManager;
 
     private void Awake()
     {
         _input = new InputControls();
         _gameManager = FindObjectOfType<GameManager>();
+        _soundManager = FindObjectOfType<SoundManager>();
     }
 
     private void OnEnable()
@@ -36,6 +38,7 @@ public class InputManager : MonoBehaviour
     private void StartTick(InputAction.CallbackContext context)
     {
         lastStartTime = Time.time;
+        _soundManager.PlayAudioClip(Sound.input);
     }
 
     private void EndTick(InputAction.CallbackContext context)
