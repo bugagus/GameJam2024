@@ -47,7 +47,8 @@ public class GameManager : MonoBehaviour
         StartGame();
     }
 
-    void Update() {
+    void Update()
+    {
         if (_timerOn && !_gameFinished)
         {
             _targetTime -= Time.deltaTime;
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Grade: " + _scoreManager.GetGrade());
 
         _globalCanvas.ShowResultsScreen(_scoreManager.GetScore(), _scoreManager.GetMaxCombo(), _scoreManager.GetGrade());
+        _levelManager.GetLevelGrades[_levelManager.GetCurrentLevel] = _scoreManager.GetGrade();
     }
 
     private void GameOver()
@@ -102,6 +104,7 @@ public class GameManager : MonoBehaviour
         _soundManager.PlayAudioClip(Sound.gameOver);
         Debug.Log("GAME OVER");
         _globalCanvas.ShowGameOver(_scoreManager.GetScore(), _scoreManager.GetMaxCombo(), _scoreManager.GetGrade());
+        _levelManager.GetLevelGrades[_levelManager.GetCurrentLevel] = _scoreManager.GetGrade();
     }
 
     public void SpawnGoblin()
@@ -111,14 +114,15 @@ public class GameManager : MonoBehaviour
         Debug.Log("Voy al index" + emptyIndex);
         goblinList.Add(goblin);
         goblin.Advance(positions[emptyIndex]);
-    } 
+    }
 
     public void RemoveGoblin(Goblin goblin)
     {
         int goblinIndex = goblinList.IndexOf(goblin);
         if (goblinIndex == -1) return;
-        
-        if (goblinIndex == 0){
+
+        if (goblinIndex == 0)
+        {
             _bigTextColorScript.AllRed();
         }
 
@@ -133,7 +137,7 @@ public class GameManager : MonoBehaviour
         }
         goblinList.RemoveAt(goblinList.Count - 1);
         //if (_timerOn)
-            SpawnGoblin();
+        SpawnGoblin();
 
     }
 
@@ -144,13 +148,13 @@ public class GameManager : MonoBehaviour
 
     public void AutoServe()
     {
-        List<Goblin> goblinListAux = new ();
-        foreach(Goblin a in goblinList)
+        List<Goblin> goblinListAux = new();
+        foreach (Goblin a in goblinList)
         {
             goblinListAux.Add(a);
         }
         goblinList.Clear();
-        foreach(Goblin a in goblinListAux)
+        foreach (Goblin a in goblinListAux)
         {
             a.GoAway();
         }
@@ -162,7 +166,8 @@ public class GameManager : MonoBehaviour
 
     public float GetTimerGoblin(EnemyType type)
     {
-        switch(type){
+        switch (type)
+        {
             case EnemyType.NormalGoblin:
                 return normalTimer;
             case EnemyType.BigGoblin:

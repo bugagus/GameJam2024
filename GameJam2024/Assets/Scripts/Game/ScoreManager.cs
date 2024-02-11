@@ -74,7 +74,7 @@ public class ScoreManager : MonoBehaviour
     public Grade GetGrade()
     {
         int totalGoblins = _goblinsServed + _goblinsFailed;
-        float accuracy = _goblinsServed / totalGoblins;
+        float accuracy = _goblinsServed / (float)totalGoblins;
 
         if (_wordsFailed == 0 && _goblinsFailed == 0)
             return Grade.SS;
