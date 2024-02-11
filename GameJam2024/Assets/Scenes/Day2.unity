@@ -2019,6 +2019,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75404697819090532, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 626129555089826653, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_Name
       value: PowerBox
