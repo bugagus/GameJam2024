@@ -24,7 +24,7 @@ public class WriteText : MonoBehaviour
         DOVirtual.DelayedCall(17.50f, ()=>{StartToWrite(texts[2]);}, false);
         DOVirtual.DelayedCall(34.50f, ()=>{StartToWrite(texts[3]);}, false);
         DOVirtual.DelayedCall(45.50f, ()=>{StartToWrite(texts[4]);}, false);
-        DOVirtual.DelayedCall(50.50f, ()=>{SceneManager.LoadScene("LevelSelector");}, false);
+        DOVirtual.DelayedCall(50.50f, ()=>{if(SceneManager.GetActiveScene().name == "Tutorial")SceneManager.LoadScene("LevelSelector");}, false);
     }
 
     public void StartToWrite(string text)

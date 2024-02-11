@@ -2626,6 +2626,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 171963946608414528, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2577903777744956188, guid: 2a8427b2dcb658141899ad4c538331f9, type: 3}
       propertyPath: m_fontColor.a
       value: 1
